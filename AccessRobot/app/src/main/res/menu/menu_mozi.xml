@@ -1,25 +1,28 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:myapp="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context="ksmaragh.c4q.nyc.accessrobot.MoziActivity">
 
     <item
         android:id="@+id/insecure_connect_scan"
-        myapp:showAsAction="never"
-        android:title="Connect to Mozi"/>
+        android:title="Connect to Mozi"
+        myapp:showAsAction="never" />
 
     <item
         android:id="@+id/preview"
-        myapp:showAsAction="never"
-        android:title="Preview Code"/>
+        android:title="Preview Code"
+        myapp:showAsAction="never" />
 
     <item
         android:id="@+id/send_to_mozi"
-        myapp:showAsAction="never"
-        android:title="Send to Mozi"/>
+        android:title="Send to Mozi"
+        myapp:showAsAction="never" />
 
 
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
 </menu>

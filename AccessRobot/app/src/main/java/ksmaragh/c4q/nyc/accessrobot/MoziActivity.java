@@ -318,7 +318,7 @@ public class MoziActivity extends AppCompatActivity {
                 }
                 return true;
             }
-            case R.id.settings: {
+            case R.id.action_settings: {
                 Intent settingsIntent = new Intent(this, SettingsActivity.class);
                 startActivity(settingsIntent);
                 return true;
