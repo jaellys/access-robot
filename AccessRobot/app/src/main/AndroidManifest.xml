@@ -9,7 +9,7 @@
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
-        android:label=""
+        android:label="Mozi"
         android:theme="@style/AppTheme" >
         <activity
             android:name=".DemoActivity"
@@ -31,8 +31,8 @@
             android:label="" >
         </activity>
         <activity
-            android:name=".MoziActivity"
-            android:label=""
+            android:name=".MainActivity"
+            android:label="Mozi"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
