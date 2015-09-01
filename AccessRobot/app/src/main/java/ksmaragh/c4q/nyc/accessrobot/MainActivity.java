@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.btn_build, R.id.btn_learn, R.id.btn_parts, R.id.btn_program})
-    public void launchActivity(View v) {
+    protected void launchActivity(View v) {
         switch (v.getId()) {
             case R.id.btn_build:
                 Intent build = new Intent(MainActivity.this, BuildActivity.class);
