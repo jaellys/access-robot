@@ -1,12 +1,12 @@
 package ksmaragh.c4q.nyc.accessrobot;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import net.steamcrafted.materialiconlib.MaterialIconView;
 
@@ -44,20 +44,20 @@ public class MainActivity extends AppCompatActivity {
     public void launchActivity(View v) {
         switch (v.getId()) {
             case R.id.btn_build:
-                // intent
-                Toast.makeText(this, "Build", Toast.LENGTH_SHORT).show();
+                Intent build = new Intent(MainActivity.this, BuildActivity.class);
+                MainActivity.this.startActivity(build);
                 break;
             case R.id.btn_learn:
-                // intent
-                Toast.makeText(this, "Learn", Toast.LENGTH_SHORT).show();
+                Intent learn = new Intent(MainActivity.this, LearnActivity.class);
+                MainActivity.this.startActivity(learn);
                 break;
             case R.id.btn_parts:
-                // intent
-                Toast.makeText(this, "Parts", Toast.LENGTH_SHORT).show();
+                Intent parts = new Intent(MainActivity.this, PartsActivity.class);
+                MainActivity.this.startActivity(parts);
                 break;
             case R.id.btn_program:
-                // intent
-                Toast.makeText(this, "Program", Toast.LENGTH_SHORT).show();
+                Intent program = new Intent(MainActivity.this, CodeActivity.class);
+                MainActivity.this.startActivity(program);
                 break;
         }
     }

@@ -12,7 +12,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Toast;
 
-public class Code extends AppCompatActivity {
+public class CodeActivity extends AppCompatActivity {
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -42,7 +42,7 @@ public class Code extends AppCompatActivity {
 
         @JavascriptInterface
         public void showToast(String mssg) {
-            Toast.makeText(Code.this, mssg, Toast.LENGTH_SHORT).show();
+            Toast.makeText(CodeActivity.this, mssg, Toast.LENGTH_SHORT).show();
         }
     }
 
