@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.startActivity(parts);
                 break;
             case R.id.btn_program:
-                Intent program = new Intent(MainActivity.this, CodeActivity.class);
+                Intent program = new Intent(MainActivity.this, MoziActivity.class);
                 MainActivity.this.startActivity(program);
                 break;
         }

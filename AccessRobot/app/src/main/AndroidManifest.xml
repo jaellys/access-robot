@@ -26,6 +26,11 @@
             android:screenOrientation="portrait" />
 
         <activity
+            android:name=".MoziActivity"
+            android:label=""
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".DeviceListActivity"
             android:label="Device List" />
 
