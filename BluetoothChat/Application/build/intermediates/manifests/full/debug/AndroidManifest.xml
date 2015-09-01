@@ -31,12 +31,12 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
+        android:label="captain&apos;s log // joss + mona go to paris"
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.example.android.bluetoothchat.MainActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:label="@string/app_name" >
+            android:label="captain&apos;s log // joss + mona go to paris" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

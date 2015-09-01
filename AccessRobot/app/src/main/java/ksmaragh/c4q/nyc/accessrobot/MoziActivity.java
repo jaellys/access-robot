@@ -323,6 +323,11 @@ public class MoziActivity extends AppCompatActivity {
                 startActivity(settingsIntent);
                 return true;
             }
+            case R.id.login: {
+                Intent loginIntent = new Intent(this, LoginActivity.class);
+                startActivity(loginIntent);
+                return true;
+            }
         }
         return super.onOptionsItemSelected(item);
     }
