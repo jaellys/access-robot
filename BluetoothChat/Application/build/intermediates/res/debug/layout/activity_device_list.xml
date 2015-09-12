@@ -64,4 +64,4 @@
         android:text="@string/button_scan"
         />
 </LinearLayout>
-<!-- From: file:/Users/mona/Desktop/access-robot/BluetoothChat/Application/src/main/res/layout/activity_device_list.xml -->
+<!-- From: file:/Users/mona/Desktop/accesscode/access-robot/BluetoothChat/Application/src/main/res/layout/activity_device_list.xml -->

@@ -28,4 +28,6 @@ dependencies {
     compile 'net.steamcrafted:materialiconlib:1.0.3'
     compile 'com.github.worker8:tourguide:1.0.13-SNAPSHOT@aar'
     compile 'net.i2p.android.ext:floatingactionbutton:1.9.0'
+    compile 'com.parse.bolts:bolts-android:1.+'
+    compile fileTree(dir: 'libs', include: 'Parse-*.jar')
 }

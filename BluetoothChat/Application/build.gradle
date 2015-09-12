@@ -19,6 +19,11 @@ dependencies {
     compile "com.android.support:support-v4:21.0.2"
     compile "com.android.support:gridlayout-v7:21.0.2"
     compile "com.android.support:cardview-v7:21.0.2"
+    compile "com.android.support:gridlayout-v7:21.0.2"
+    compile 'com.android.support:support-v4:22.2.1'
+    compile 'com.android.support:design:22.2.0'
+    compile 'com.android.support:multidex:1.0.1'
+
 }
 
 // The sample build uses multiple directories to

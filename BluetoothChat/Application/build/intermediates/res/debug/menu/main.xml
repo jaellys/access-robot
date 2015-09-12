@@ -19,4 +19,4 @@
           android:showAsAction="always"
           android:title="@string/sample_show_log" />
 </menu>
-<!-- From: file:/Users/mona/Desktop/access-robot/BluetoothChat/Application/src/main/res/menu/main.xml -->
+<!-- From: file:/Users/mona/Desktop/accesscode/access-robot/BluetoothChat/Application/src/main/res/menu/main.xml -->
