@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="ksmaragh.c4q.nyc.accessrobot">
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -13,11 +14,14 @@
         android:icon="@mipmap/ic_launcher"
         android:name=".MoziApplication"
         android:label="Mozi"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        tools:replace="android:label">
+
         <activity
             android:name=".DemoActivity"
             android:label="@string/app_name" >
         </activity>
+
         <activity
             android:name=".BluetoothActivity"
             android:label=""
@@ -36,10 +40,6 @@
             android:name=".MoziActivity"
             android:label=""
             android:screenOrientation="portrait" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
 
         <activity
@@ -55,7 +55,15 @@
             android:name=".MainActivity"
             android:label=""
             android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name=".MainActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
+
+        <activity
+            android:name=".OnboardingActivity"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".PartsActivity"
@@ -71,11 +79,22 @@
             android:screenOrientation="portrait"
             android:label="" >
         </activity>
+
         <activity
             android:name=".SignupActivity"
             android:screenOrientation="portrait"
             android:label="" >
         </activity>
+
+        <activity
+            android:name=".SplashActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
