@@ -1,17 +1,36 @@
 package ksmaragh.c4q.nyc.accessrobot;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 
 public class LearnActivity extends AppCompatActivity {
+    Button btnAssemblyVideo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn);
+
+        btnAssemblyVideo = (Button) findViewById(R.id.btn_learn_assembly);
+        btnAssemblyVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playMoziAssemblyVideo();
+            }
+        });
+    }
+
+    private void playMoziAssemblyVideo() {
+        String videoId = "DXpl0H1tLcU";
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + videoId));
+        startActivity(intent);
     }
 
 
