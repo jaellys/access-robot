@@ -1,6 +1,7 @@
 package ksmaragh.c4q.nyc.accessrobot;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -38,6 +39,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
+
+        SharedPreferences preferences =
+                getSharedPreferences("my_preferences", MODE_PRIVATE);
+
+        if (!preferences.getBoolean("onboarding_complete", false)) {
+
+            Intent onboarding = new Intent(this, OnboardingActivity.class);
+            startActivity(onboarding);
+
+            finish();
+            return;
+        }
     }
 
     @OnClick({R.id.btn_build, R.id.btn_learn, R.id.btn_parts, R.id.btn_program})

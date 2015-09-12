@@ -4,9 +4,7 @@
     <string name="instructions">Control your robot!</string>
     <string name="action_code">Code</string>
     <string name="title_activity_code">Code</string>
-    <string name="app_name">AccessRobot</string>
-    <string name="hello_world">Hello world!</string>
-
+    <string name="app_name">Mozi</string>
 
     <!--  BluetoothChat -->
     <string name="send">Send</string>
@@ -37,5 +35,14 @@
     <string name="title_activity_parts">Parts</string>
     <string name="title_activity_build">Build</string>
     <string name="title_activity_learn">Learn</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title_01_build">Build a bot!</string>
+    <string name="onboarding_text_01_build">We help you order parts and build your very own mozi.</string>
+    <string name="onboarding_title_02_hack">Learn to hack!</string>
+    <string name="onboarding_text_02_hack">With Google Blockly, you can program mozi to follow your commands.</string>
+    <string name="onboarding_title_03_share">Share your work!</string>
+    <string name="onboarding_text_03_share">Show off and share your work by uploading to our website.</string>
+    <string name="onboarding_title_04_start">Let\'s get started!</string>
 
 </resources>
