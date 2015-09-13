@@ -6,9 +6,13 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -30,6 +34,7 @@ public class MoziActivity extends AppCompatActivity {
     private BluetoothArduinoService mChatService = null;
     private final BluetoothHandler mHandler = new BluetoothHandler(this);
     private WebView webView;
+    private WebSettings wSettings;
 
     private static final String TAG = "MoziActivity";
 
@@ -38,20 +43,53 @@ public class MoziActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_code);
+        initWebView();
         initBluetooth();
-        WebSettings wSettings;
+        initActionBar();
 
+    }
+
+    public void connectMozi() {
+
+    }
+
+    public void initWebView() {
         webView = new WebView(this);
         webView.setClickable(true);
         wSettings = webView.getSettings();
         wSettings.setJavaScriptEnabled(true);
         webView.addJavascriptInterface(new myJsInterface(this), "Android");
         webView.loadUrl("file:///android_asset/blockly/blockly.html");
-        setContentView(webView);
-
-
     }
 
+    private void initActionBar() {
+
+        // setup action bar for tabs
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        actionBar.setDisplayShowTitleEnabled(false);
+
+        ActionBar.Tab tab = actionBar.newTab()
+                .setText("Build")
+                .setTabListener(new TabListener(
+                        this, "build", webView));
+        actionBar.addTab(tab);
+
+        tab = actionBar.newTab()
+                .setText("Learn")
+                .setTabListener(new TabListener(
+                        this, "learn", webView));
+        actionBar.addTab(tab);
+
+        tab = actionBar.newTab()
+                .setText("Program")
+                .setTabListener(new TabListener(
+                        this, "program", webView));
+        actionBar.addTab(tab);
+
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4EB596")));
+
+    }
 
     private void initBluetooth() {
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -60,8 +98,6 @@ public class MoziActivity extends AppCompatActivity {
             Toast.makeText(this, "Bluetooth is not available", Toast.LENGTH_LONG).show();
         }
     }
-
-
 
     public class myJsInterface {
         private Context con;
@@ -73,25 +109,15 @@ public class MoziActivity extends AppCompatActivity {
         @JavascriptInterface
         public void talkToArduino(String msg) {
             //Toast.makeText(MoziActivity.this, msg, Toast.LENGTH_SHORT).show();
-            sendMessage(msg);
-        }
-
-        @JavascriptInterface
-        public void connectBluetooth() {
-            Intent serverIntent = new Intent(MoziActivity.this, DeviceListActivity.class);
-            startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE_INSECURE);
-
+             sendMessage(msg);
         }
 
     }
-
-
 
     /**
      * Set up the UI and background operations for chat.
      */
     private void setupChat() {
-        Log.d(TAG, "setupChat()");
 
         // Initialize the BluetoothChatService to perform bluetooth connections
         mChatService = new BluetoothArduinoService(this, mHandler);
@@ -117,7 +143,8 @@ public class MoziActivity extends AppCompatActivity {
      *
      * @param message A string of text to send.
      */
-    private void sendMessage(String message) {
+    public void sendMessage(String message) {
+        Log.d(TAG, message);
         // Check that we're actually connected before trying anything
         if (mChatService.getState() != BluetoothArduinoService.STATE_CONNECTED) {
             Toast.makeText(this, R.string.not_connected, Toast.LENGTH_SHORT).show();
@@ -331,6 +358,46 @@ public class MoziActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public static class TabListener implements ActionBar.TabListener {
+        private final MoziActivity mActivity;
+        private final String mTag;
+        private final WebView mProgram;
+
+
+        public TabListener(MoziActivity activity, String tag, WebView program) {
+            mActivity = activity;
+            mTag = tag;
+            mProgram = program;
+        }
+
+    /* The following are each of the ActionBar.TabListener callbacks */
+
+
+        @Override
+        public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
+            // Check if the fragment is already initialized
+            Log.d(TAG, mTag);
+
+            if (mTag.equals("build")) {
+
+            } else if (mTag.equals("learn")) {
+                mActivity.setContentView(mProgram);
+            } else if (mTag.equals("program")) {
+                mActivity.setContentView(mProgram);
+            }
+        }
+
+        public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
+
+        }
+
+        public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+            // User selected the already selected tab. Usually do nothing.
+        }
+    }
+
 }
+
 
 

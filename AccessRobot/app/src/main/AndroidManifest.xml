@@ -40,6 +40,10 @@
             android:name=".MoziActivity"
             android:label=""
             android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name=".MoziActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
 
         <activity
@@ -55,10 +59,6 @@
             android:name=".MainActivity"
             android:label=""
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name=".MainActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
 
         <activity

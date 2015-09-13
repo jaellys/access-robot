@@ -98,7 +98,7 @@ public class OnboardingActivity extends FragmentActivity {
         preferences.edit()
                 .putBoolean("onboarding_complete", true).apply();
 
-        Intent main = new Intent(this, MainActivity.class);
+        Intent main = new Intent(this, MoziActivity.class);
         startActivity(main);
 
         finish();
