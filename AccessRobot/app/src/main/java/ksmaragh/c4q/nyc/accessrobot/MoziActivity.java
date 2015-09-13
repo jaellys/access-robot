@@ -69,7 +69,7 @@ public class MoziActivity extends AppCompatActivity {
         tutSettings = tutWebView.getSettings();
         tutSettings.setJavaScriptEnabled(true);
         tutWebView.addJavascriptInterface(new myJsInterface(this), "Android");
-        tutWebView.loadUrl("file:///android_asset/blockly/tutorial/tutorial.html");
+        tutWebView.loadUrl("file:///android_asset/blockly/tut.html");
     }
 
     private void initActionBar() {
@@ -88,7 +88,7 @@ public class MoziActivity extends AppCompatActivity {
         tab = actionBar.newTab()
                 .setText("Learn")
                 .setTabListener(new TabListener(
-                        this, "learn", webView));
+                        this, "learn", tutWebView));
         actionBar.addTab(tab);
 
         tab = actionBar.newTab()
