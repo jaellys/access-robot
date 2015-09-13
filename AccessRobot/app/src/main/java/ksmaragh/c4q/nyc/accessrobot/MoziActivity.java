@@ -41,17 +41,13 @@ public class MoziActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_code);
-        initWebView();
+        initProgramWebView();
         initBluetooth();
         initActionBar();
 
     }
 
-    public void connectMozi() {
-
-    }
-
-    public void initWebView() {
+    public void initProgramWebView() {
         webView = new WebView(this);
         webView.setClickable(true);
         wSettings = webView.getSettings();
@@ -324,26 +320,35 @@ public class MoziActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.insecure_connect_scan: {
-                // Launch the DeviceListActivity to see devices and do scan
-                Intent serverIntent = new Intent(this, DeviceListActivity.class);
-                startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE_INSECURE);
-                return true;
-            }
             case R.id.send_to_mozi: {
                 if (webView != null) {
                     webView.evaluateJavascript("runCode()", null);
                 }
                 return true;
             }
+
+            case R.id.share: {
+                Intent shareIntent = new Intent(this, LoginActivity.class);
+                startActivity(shareIntent);
+                return true;
+            }
+
+            case R.id.connect: {
+                // Launch the DeviceListActivity to see devices and do scan
+                Intent serverIntent = new Intent(this, DeviceListActivity.class);
+                startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE_INSECURE);
+                return true;
+            }
+
+            case R.id.my_programs: {
+                Intent myProgramsIntent = new Intent(this, MyProgramsActivity.class);
+                startActivity(myProgramsIntent);
+                return true;
+            }
+
             case R.id.action_settings: {
                 Intent settingsIntent = new Intent(this, SettingsActivity.class);
                 startActivity(settingsIntent);
-                return true;
-            }
-            case R.id.login: {
-                Intent loginIntent = new Intent(this, LoginActivity.class);
-                startActivity(loginIntent);
                 return true;
             }
         }
