@@ -1,9 +1,10 @@
 package ksmaragh.c4q.nyc.accessrobot;
 
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,7 +14,6 @@ import android.widget.Toast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 
 public class LearnActivity extends AppCompatActivity {
@@ -62,13 +62,41 @@ public class LearnActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn);
-
         ButterKnife.bind(this);
+        initActionBar();
 
         btnLearnMoziComponents.setOnClickListener(buttonClickListener);
         btnOrderParts.setOnClickListener(buttonClickListener);
+        btnAssemblyVideo.setOnClickListener(buttonClickListener);
         btnLearnBlockly.setOnClickListener(buttonClickListener);
 
+
+    }
+
+    private void initActionBar() {
+
+        // setup action bar for tabs
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        actionBar.setDisplayShowTitleEnabled(false);
+
+        ActionBar.Tab tab = actionBar.newTab()
+                .setText("Build")
+                .setTabListener(new TabListener(
+                        this, "build"));
+        actionBar.addTab(tab);
+
+        tab = actionBar.newTab()
+                .setText("Learn")
+                .setTabListener(new TabListener(
+                        this, "learn"));
+        actionBar.addTab(tab);
+
+        tab = actionBar.newTab()
+                .setText("Program")
+                .setTabListener(new TabListener(
+                        this, "program"));
+        actionBar.addTab(tab);
 
     }
 
@@ -81,9 +109,6 @@ public class LearnActivity extends AppCompatActivity {
     }
 
     private void startPartsActivity() {
-//        Intent intent = new Intent(this, PartsActivity.class);
-//        startActivity(intent);
-
         // avoid the intermediate PartsActivity  and start the browser to show shopping cart
         //this will save the unnecessary extra clicks to start a purchase
 
@@ -112,11 +137,9 @@ public class LearnActivity extends AppCompatActivity {
     }
 
     private void startBlocklyTutorial() {
-        //TODO: link to the correct activity
-        Toast.makeText(this, "Blockly tutorial coming soon", Toast.LENGTH_LONG).show();
 
-//        Intent intent = new Intent(this, BlocklyActivity.class);
-//        startActivity(intent);
+        Intent intent = new Intent(this, MoziActivity.class);
+        startActivity(intent);
 
     }
 
@@ -141,5 +164,42 @@ public class LearnActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public static class TabListener implements ActionBar.TabListener {
+        private final LearnActivity mActivity;
+        private final String mTag;
+
+
+        public TabListener(LearnActivity activity, String tag) {
+            mActivity = activity;
+            mTag = tag;
+        }
+
+    /* The following are each of the ActionBar.TabListener callbacks */
+
+
+        @Override
+        public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
+            // Check if the fragment is already initialized
+
+            if (mTag.equals("build")) {
+
+            } else if (mTag.equals("learn")) {
+                Intent intent = new Intent(mActivity, MoziActivity.class);
+                mActivity.startActivity(intent);
+            } else if (mTag.equals("program")) {
+                Intent intent = new Intent(mActivity, MoziActivity.class);
+                mActivity.startActivity(intent);
+            }
+        }
+
+        public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
+
+        }
+
+        public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+            // User selected the already selected tab. Usually do nothing.
+        }
     }
 }

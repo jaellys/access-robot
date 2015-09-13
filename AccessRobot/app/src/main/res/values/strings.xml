@@ -47,5 +47,7 @@
     <string name="interface_type_label">Interface type:</string>
     <string name="interface_type_bluetooth">Bluetooth</string>
     <string name="interface_type_serial">Serial cable</string>
+    <string name="title_activity_my_programs">MyProgramsActivity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
