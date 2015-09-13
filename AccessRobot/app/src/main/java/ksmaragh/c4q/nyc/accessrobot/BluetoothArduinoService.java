@@ -323,7 +323,7 @@ public class BluetoothArduinoService {
                     // This is a blocking call and will only return on a
                     // successful connection or an exception
                     socket = mmServerSocket.accept();
-                } catch (IOException e) {
+                } catch (Exception e) {
                     Log.e(TAG, "Socket Type: " + mSocketType + "accept() failed", e);
                     break;
                 }
@@ -343,7 +343,7 @@ public class BluetoothArduinoService {
                                 // Either not ready or already connected. Terminate new socket.
                                 try {
                                     socket.close();
-                                } catch (IOException e) {
+                                } catch (Exception e) {
                                     Log.e(TAG, "Could not close unwanted socket", e);
                                 }
                                 break;

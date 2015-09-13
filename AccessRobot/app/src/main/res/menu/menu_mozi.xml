@@ -4,27 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="ksmaragh.c4q.nyc.accessrobot.MoziActivity">
 
-    <item
-        android:id="@+id/insecure_connect_scan"
-        android:title="Connect to Mozi"
-        myapp:showAsAction="never" />
-
-    <item
-        android:id="@+id/preview"
-        android:title="Preview Code"
-        myapp:showAsAction="never" />
 
     <item
         android:id="@+id/send_to_mozi"
         android:title="Send to Mozi"
+        android:icon="@drawable/ic_play_arrow_white_48dp"
+        myapp:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/login"
+        myapp:showAsAction="ifRoom"
+        android:icon="@drawable/ic_share_white_48dp"
+        android:title="Share"/>
+    <item
+        android:id="@+id/insecure_connect_scan"
+        android:title="Connect to Mozi"
+        android:icon="@drawable/ic_bluetooth_connected_white_48dp"
+        myapp:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/my_programs"
+        android:title="My Programs"
         myapp:showAsAction="never" />
+
+
 
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         app:showAsAction="never" />
 
-    <item
-        android:id="@+id/login"
-        myapp:showAsAction="never"
-        android:title="Login"/>
+
+
+
+
+
 
 </menu>

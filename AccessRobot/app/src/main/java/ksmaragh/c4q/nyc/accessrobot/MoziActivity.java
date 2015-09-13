@@ -6,8 +6,6 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -73,21 +71,19 @@ public class MoziActivity extends AppCompatActivity {
                 .setText("Build")
                 .setTabListener(new TabListener(
                         this, "build", webView));
-        actionBar.addTab(tab);
+        actionBar.addTab(tab, false);
 
         tab = actionBar.newTab()
                 .setText("Learn")
                 .setTabListener(new TabListener(
                         this, "learn", webView));
-        actionBar.addTab(tab);
+        actionBar.addTab(tab, false);
 
         tab = actionBar.newTab()
                 .setText("Program")
                 .setTabListener(new TabListener(
                         this, "program", webView));
-        actionBar.addTab(tab);
-
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4EB596")));
+        actionBar.addTab(tab, true);
 
     }
 
@@ -334,11 +330,6 @@ public class MoziActivity extends AppCompatActivity {
                 startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE_INSECURE);
                 return true;
             }
-            case R.id.preview: {
-                // Ensure this device is discoverable by others
-                ensureDiscoverable();
-                return true;
-            }
             case R.id.send_to_mozi: {
                 if (webView != null) {
                     webView.evaluateJavascript("runCode()", null);
@@ -380,7 +371,8 @@ public class MoziActivity extends AppCompatActivity {
             Log.d(TAG, mTag);
 
             if (mTag.equals("build")) {
-
+                Intent intent = new Intent(mActivity, LearnActivity.class);
+                mActivity.startActivity(intent);
             } else if (mTag.equals("learn")) {
                 mActivity.setContentView(mProgram);
             } else if (mTag.equals("program")) {

@@ -1,37 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:gravity="top"
+    android:layout_gravity="top"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="600dp"
+        android:layout_height="200dp"
+        android:gravity="center"
+        android:elevation="4dp"
+        android:layout_gravity="top"
+        android:background="#ffffff"
+        android:src="@drawable/mozi_header_multi"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:gravity="bottom"
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
 
     <Button
         android:id="@+id/btn_learn_mozi_components"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:text="Learn about Mozi"
-        android:background="#aaffaa"
-        android:textSize="24sp"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="Meet Mozi"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
+        android:textAllCaps="false"
+        android:textColor="#EAAB21"
+        android:background="@drawable/button_yellow"
+        android:textSize="20sp"/>
 
     <Button
         android:id="@+id/btn_order_parts"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:text="Order parts"
-        android:background="#aaaaff"
-        android:textSize="24sp"/>
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:textAllCaps="false"
+        android:textColor="#EA7D22"
+        android:background="@drawable/button_orange"
+        android:textSize="20sp"/>
 
     <Button
         android:id="@+id/btn_learn_assembly"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:text="Put Mozi together"
-        android:background="#aaffff"
-        android:textSize="24sp"/>
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:textAllCaps="false"
+        android:textColor="#DF3A7C"
+        android:background="@drawable/button_pink"
+        android:textSize="20sp"/>
     <Button
         android:id="@+id/btn_learn_blockly"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:text="Make Mozi move"
-        android:background="#ffaaaa"
-        android:textSize="24sp"/>
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:textAllCaps="false"
+        android:textColor="#18A2C5"
+        android:background="@drawable/button_purple"
+        android:textSize="20sp"/>
+</LinearLayout>
 </LinearLayout>
