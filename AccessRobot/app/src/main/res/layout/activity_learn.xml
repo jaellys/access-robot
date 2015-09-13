@@ -4,4 +4,34 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <Button
+        android:id="@+id/btn_learn_mozi_components"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:text="Learn about Mozi"
+        android:background="#aaffaa"
+        android:textSize="24sp"/>
+
+    <Button
+        android:id="@+id/btn_order_parts"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:text="Order parts"
+        android:background="#aaaaff"
+        android:textSize="24sp"/>
+
+    <Button
+        android:id="@+id/btn_learn_assembly"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:text="Put Mozi together"
+        android:background="#aaffff"
+        android:textSize="24sp"/>
+    <Button
+        android:id="@+id/btn_learn_blockly"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:text="Make Mozi move"
+        android:background="#ffaaaa"
+        android:textSize="24sp"/>
 </LinearLayout>
