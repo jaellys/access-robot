@@ -44,5 +44,8 @@
     <string name="onboarding_title_03_share">Share your work!</string>
     <string name="onboarding_text_03_share">Show off and share your work by uploading to our website.</string>
     <string name="onboarding_title_04_start">Let\'s get started!</string>
+    <string name="interface_type_label">Interface type:</string>
+    <string name="interface_type_bluetooth">Bluetooth</string>
+    <string name="interface_type_serial">Serial cable</string>
 
 </resources>
