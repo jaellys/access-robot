@@ -109,23 +109,8 @@ public class LearnActivity extends AppCompatActivity {
     }
 
     private void startPartsActivity() {
-        // avoid the intermediate PartsActivity  and start the browser to show shopping cart
-        //this will save the unnecessary extra clicks to start a purchase
-
-        String url = "http://www.amazon.com/gp/aws/cart/add.html?" +
-                "AssociateTag=your-tag-here-20&" +
-                "ASIN.1=B00OBSD202&Quantity.1=1&" +
-                "ASIN.2=B00P7Q86HG&Quantity.2=1&" +
-                "ASIN.3=B00KTXWG9G&Quantity.3=1&" +
-                "ASIN.4=B001CFUBN8&Quantity.4=2&" +
-                "ASIN.5=B0089VA3AY&Quantity.5=1&" +
-                "ASIN.6=B00C0Q67IQ&Quantity.6=1&" +
-                "ASIN.7=B0081IC18W&Quantity.7=1&" +
-                "ASIN.8=B000TGSPV6&Quantity.8=1&" +
-                "ASIN.9=B00AYPEL56&Quantity.9=1";
-        Intent openUrl = new Intent(Intent.ACTION_VIEW);
-        openUrl.setData(Uri.parse(url));
-        startActivity(openUrl);
+        Intent intent = new Intent(this, PartsActivity.class);
+        startActivity(intent);
 
     }
 
@@ -134,10 +119,10 @@ public class LearnActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + videoId));
         intent.putExtra("force_fullscreen",true);
         startActivity(intent);
+
     }
 
     private void startBlocklyTutorial() {
-
         Intent intent = new Intent(this, MoziActivity.class);
         startActivity(intent);
 

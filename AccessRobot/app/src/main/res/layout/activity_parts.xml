@@ -2,12 +2,37 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_order_parts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Order parts"/>
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="#ffffff"
+        android:layout_width="fill_parent"
+        android:layout_marginBottom="24dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top"
+            android:gravity="center_horizontal|top"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:background="#ffffff"
+            android:src="@drawable/mozi_header_multi"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="#ffffff"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <WebView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/partsWebView" />
+    </LinearLayout>
 </LinearLayout>

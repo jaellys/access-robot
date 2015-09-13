@@ -5,50 +5,45 @@
         android:gravity="center_horizontal"
         tools:context="ksmaragh.c4q.nyc.accessrobot.LoginActivity">
 
+     <LinearLayout
+         android:orientation="vertical"
+         android:gravity="center_horizontal"
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent">
+
+         <ImageView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center_horizontal|top"
+             android:gravity="center_horizontal|top"
+             android:scaleType="fitXY"
+             android:adjustViewBounds="true"
+             android:background="#ffffff"
+             android:src="@drawable/mozi_header_multi"/>
+
         <LinearLayout
             android:orientation="vertical"
             android:gravity="center_horizontal"
+            android:minWidth="300dp"
+            android:layout_marginTop="60dp"
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent">
-
-            <ImageView
-                android:layout_width="600dp"
-                android:layout_height="200dp"
-                android:gravity="center"
-                android:elevation="4dp"
-                android:layout_gravity="top"
-                android:background="#ffffff"
-                android:src="@drawable/mozi_header_multi"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
-                android:layout_marginBottom="60dp"
-                android:textColor="@color/pink"
-                android:textSize="24sp"
-                android:text="Your account"
-                android:id="@+id/textView5" />
+            android:layout_height="wrap_content">
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
                 android:textColor="@color/white"
-                android:textSize="24sp"
                 android:inputType="textEmailAddress"
                 android:hint="Email"
-                android:ems="10"
                 android:id="@+id/email" />
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:textSize="24sp"
                 android:textColor="@color/white"
                 android:hint="Password"
-                android:ems="10"
                 android:id="@+id/password" />
 
             <LinearLayout
@@ -60,24 +55,22 @@
                 android:layout_height="wrap_content">
 
                 <Button
-                    android:layout_width="120dp"
-                    android:layout_height="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
                     android:text="Login"
                     android:textAllCaps="false"
                     android:textColor="#DF3A7C"
                     android:background="@drawable/button_pink"
-                    android:textSize="20sp"
                     android:id="@+id/login_button" />
 
                 <Button
-                    android:layout_width="120dp"
-                    android:layout_height="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:text="Sign Up"
                     android:textAllCaps="false"
                     android:textColor="#DF3A7C"
                     android:background="@drawable/button_pink"
-                    android:textSize="20sp"
                     android:id="@+id/signup_button" />
             </LinearLayout>
 
@@ -87,8 +80,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/progressBar"
                 android:layout_gravity="center_horizontal" />
-
-
         </LinearLayout>
+
+     </LinearLayout>
 
     </RelativeLayout>

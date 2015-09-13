@@ -54,6 +54,9 @@ public class MoziActivity extends AppCompatActivity {
         wSettings.setJavaScriptEnabled(true);
         webView.addJavascriptInterface(new myJsInterface(this), "Android");
         webView.loadUrl("file:///android_asset/blockly/blockly.html");
+        for (int i = 0; i < 200; i++) {
+            webView.zoomOut();
+        }
     }
 
     private void initActionBar() {

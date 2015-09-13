@@ -1,33 +1,26 @@
 package ksmaragh.c4q.nyc.accessrobot;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
+import android.webkit.WebView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 
 public class PartsActivity extends AppCompatActivity {
-    @Bind(R.id.btn_order_parts)
-    Button orderParts;
+
+    @Bind(R.id.partsWebView)
+    WebView partsWebView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parts);
-
         ButterKnife.bind(this);
-    }
 
-    @OnClick(R.id.btn_order_parts)
-    protected void orderParts(View v) {
         String url = "http://www.amazon.com/gp/aws/cart/add.html?" +
                 "AssociateTag=your-tag-here-20&" +
                 "ASIN.1=B00OBSD202&Quantity.1=1&" +
@@ -39,9 +32,9 @@ public class PartsActivity extends AppCompatActivity {
                 "ASIN.7=B0081IC18W&Quantity.7=1&" +
                 "ASIN.8=B000TGSPV6&Quantity.8=1&" +
                 "ASIN.9=B00AYPEL56&Quantity.9=1";
-        Intent openUrl = new Intent(Intent.ACTION_VIEW);
-        openUrl.setData(Uri.parse(url));
-        startActivity(openUrl);
+
+        partsWebView.getSettings().setJavaScriptEnabled(true);
+        partsWebView.loadUrl(url);
     }
 
     @Override

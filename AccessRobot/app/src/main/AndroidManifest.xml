@@ -61,7 +61,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".PartsActivity"
-            android:label="@string/title_activity_parts"
+            android:label=" "
             android:screenOrientation="portrait" />
         <activity
             android:name=".SettingsActivity"
