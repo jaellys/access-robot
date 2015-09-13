@@ -31,8 +31,8 @@ public class MoziActivity extends AppCompatActivity {
     private BluetoothAdapter mBluetoothAdapter = null;
     private BluetoothArduinoService mChatService = null;
     private final BluetoothHandler mHandler = new BluetoothHandler(this);
-    private WebView webView;
-    private WebSettings wSettings;
+    private WebView webView, tutWebView;;
+    private WebSettings wSettings, tutSettings;
 
     private static final String TAG = "MoziActivity";
 
@@ -42,6 +42,8 @@ public class MoziActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_code);
         initProgramWebView();
+        initTutWebView();
+
         initBluetooth();
         initActionBar();
 
@@ -54,6 +56,15 @@ public class MoziActivity extends AppCompatActivity {
         wSettings.setJavaScriptEnabled(true);
         webView.addJavascriptInterface(new myJsInterface(this), "Android");
         webView.loadUrl("file:///android_asset/blockly/blockly.html");
+    }
+
+    public void initTutWebView() {
+        tutWebView= new WebView(this);
+        tutWebView.setClickable(true);
+        tutSettings = tutWebView.getSettings();
+        tutSettings.setJavaScriptEnabled(true);
+        tutWebView.addJavascriptInterface(new myJsInterface(this), "Android");
+        tutWebView.loadUrl("file:///android_asset/blockly/tut.html");
     }
 
     private void initActionBar() {
@@ -72,8 +83,8 @@ public class MoziActivity extends AppCompatActivity {
         tab = actionBar.newTab()
                 .setText("Learn")
                 .setTabListener(new TabListener(
-                        this, "learn", webView));
-        actionBar.addTab(tab, false);
+                        this, "learn", tutWebView));
+        actionBar.addTab(tab);
 
         tab = actionBar.newTab()
                 .setText("Program")

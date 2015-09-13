@@ -1,0 +1,452 @@
+<!--Messi Jquery-->
+<!--http://messijs.github.io/MessiJS/-->
+<!--Level 1: Have the user move mozi forward 1 step-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Mozi: Level 1</title>
+    <link rel="stylesheet" type="text/css" href="../blockly/jQuery/Messi/messi.min.css">
+    <link rel="stylesheet" type="text/css" href="blocklyAreaCSS.css">
+    <script src="../blockly/jQuery/jquery_2_1_4_min.js"></script>
+    <script src="../blockly/jQuery/Messi/messi.min.js"></script>
+    <script src="blockly_compressed.js"></script>
+    <script src="blocks_compressed.js"></script>
+    <script src="bitlash_compressed.js"></script>
+    <script src="en.js"></script>
+
+</head>
+<body>
+
+<table>
+    <tr>
+        <td id="blocklyArea">
+        </td>
+    </tr>
+</table>
+
+<div id="blocklyDiv" style="position: absolute"></div>
+
+<!-- Toolboxs for injection -->
+<xml id="toolbox1" style="display: none">
+        <category name="1">
+            <block type="move_forward"></block>
+        </category>
+        <category name="4">
+            <block type="math_number_digits"></block>
+        </category>
+</xml>
+
+<xml id="toolbox2" style="display: none">
+    <category name="1">
+        <block type="move_forward"></block>
+        <block type="move_backward"></block>
+        <block type="turn_left"></block>
+        <block type="turn_right"></block>
+    </category>
+    <category name="4">
+        <block type="math_number_digits"></block>
+        <block type="math_number_tens"></block>
+    </category>
+</xml>
+
+<xml id="toolbox3" style="display: none">
+    <category name="1">
+        <block type="move_forward"></block>
+        <block type="move_backward"></block>
+        <block type="turn_left"></block>
+        <block type="turn_right"></block>
+    </category>
+    <category name="2">
+        <block type="controls_if"></block>
+        <block type="logic_compare"></block>
+    </category>
+    <category name="4">
+        <block type="math_number_digits"></block>
+        <block type="math_number_tens"></block>
+        <block type="math_arithmetic"></block>
+    </category>
+</xml>
+
+<xml id="toolbox4" style="display: none">
+    <category name="1">
+        <block type="move_forward"></block>
+        <block type="move_backward"></block>
+        <block type="turn_left"></block>
+        <block type="turn_right"></block>
+    </category>
+    <category name="2">
+        <block type="controls_if"></block>
+        <block type="logic_compare"></block>
+        <block type="logic_operation"></block>
+    </category>
+    <category name="3">
+            <block type="base_delay"></block>
+        </category>
+    <category name="4">
+        <block type="math_number_digits"></block>
+        <block type="math_number_tens"></block>
+        <block type="math_arithmetic"></block>
+    </category>
+</xml>
+
+<xml id="toolbox5" style="display: none">
+    <category name="1">
+        <block type="move_forward"></block>
+        <block type="move_backward"></block>
+        <block type="turn_left"></block>
+        <block type="turn_right"></block>
+    </category>
+    <category name="2">
+        <block type="controls_if"></block>
+        <block type="logic_compare"></block>
+        <block type="logic_operation"></block>
+        <block type="logic_negate"></block>
+    </category>
+    <category name="3">
+            <block type="base_delay"></block>
+            <block type="controls_for"></block>
+        </category>
+    <category name="4">
+        <block type="math_number_digits"></block>
+        <block type="math_number_tens"></block>
+        <block type="math_arithmetic"></block>
+    </category>
+</xml>
+
+<xml id="toolbox6" style="display: none">
+    <category name="1">
+        <block type="move_forward"></block>
+        <block type="move_backward"></block>
+        <block type="turn_left"></block>
+        <block type="turn_right"></block>
+    </category>
+    <category name="2">
+        <block type="controls_if"></block>
+        <block type="logic_compare"></block>
+        <block type="logic_operation"></block>
+        <block type="logic_negate"></block>
+    </category>
+    <category name="3">
+            <block type="base_delay"></block>
+            <block type="controls_for"></block>
+            <block type="controls_whileUntil"></block>
+        </category>
+    <category name="4">
+        <block type="math_number_digits"></block>
+        <block type="math_number_tens"></block>
+        <block type="math_arithmetic"></block>
+    </category>
+</xml>
+
+<xml id="toolbox7" style="display: none">
+    <category name="1">
+        <block type="move_forward"></block>
+        <block type="move_backward"></block>
+        <block type="turn_left"></block>
+        <block type="turn_right"></block>
+    </category>
+    <category name="2">
+        <block type="controls_if"></block>
+        <block type="logic_compare"></block>
+        <block type="logic_operation"></block>
+        <block type="logic_negate"></block>
+    </category>
+    <category name="3">
+            <block type="base_delay"></block>
+            <block type="controls_for"></block>
+            <block type="controls_whileUntil"></block>
+        </category>
+    <category name="4">
+        <block type="math_number_digits"></block>
+        <block type="math_number_tens"></block>
+        <block type="math_arithmetic"></block>
+    </category>
+     <category name="5" custom="VARIABLE"></category>
+</xml>
+
+<xml id="toolbox8" style="display: none">
+    <category name="1">
+        <block type="move_forward"></block>
+        <block type="move_backward"></block>
+        <block type="turn_left"></block>
+        <block type="turn_right"></block>
+    </category>
+    <category name="2">
+        <block type="controls_if"></block>
+        <block type="logic_compare"></block>
+        <block type="logic_operation"></block>
+        <block type="logic_negate"></block>
+    </category>
+    <category name="3">
+            <block type="base_delay"></block>
+            <block type="controls_for"></block>
+            <block type="controls_whileUntil"></block>
+        </category>
+    <category name="4">
+        <block type="math_number_digits"></block>
+        <block type="math_number_tens"></block>
+        <block type="math_arithmetic"></block>
+    </category>
+     <category name="5" custom="VARIABLE"></category>
+     <category name="6" custom="PROCEDURE"></category>
+</xml>
+
+<!-- Inserted workspace blocks -->
+<xml id="startBlocks">
+    <block type="move_forward"></block>
+</xml>
+
+<xml id="startBlocksLvl3">
+    <block type="controls_if"></block>
+</xml>
+
+<script>
+    //Initialization variables
+    var blocklyArea = document.getElementById('blocklyArea');
+    var blocklyDiv = document.getElementById('blocklyDiv');
+    var workspace;
+    var currentLevel;
+
+    var onresize = function(e) {
+      // Compute the absolute coordinates and dimensions of blocklyArea.
+      var element = blocklyArea;
+      var x = 0;
+      var y = 0;
+      do {
+        x += element.offsetLeft;
+        y += element.offsetTop;
+        element = element.offsetParent;
+      } while (element);
+      // Position blocklyDiv over blocklyArea.
+      blocklyDiv.style.left = x + 'px';
+      blocklyDiv.style.top = y + 'px';
+      blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
+      blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
+    };
+    window.addEventListener('resize', onresize, false);
+    onresize();
+
+    //Dialog global references
+    var dialog;
+
+    //Initialize the maze
+    mazeInit();
+
+   //Function Declarations
+    function mazeInit(){
+        // currentLevel = curLevel();
+        currentLevel = 4;
+        injectToolbox();
+        levelControl();
+
+        setTimeout(function() {
+          workspace.addChangeListener(levelHelp); //Only calls it when there is a change
+          levelHelp(); //Calls it regardless if there is a change in workspace
+        }, 3000);
+
+        
+    }
+
+    function saveProgress(){
+    var nextLevel = currentLevel + 1;
+    try {
+        Android.saveLevel(nextLevel);
+      } catch (e) {
+        alert(e);
+      }
+    }
+
+    function curLevel(){
+       try {
+        var curNum = Android.getCurrentLevel();
+        return curNum;
+      } catch (e) {
+        log(e);
+        return 1;
+      }
+    }
+
+    function injectToolbox(){
+      if(currentLevel > 0 && currentLevel <= 10){
+        var curToolbox = 'toolbox' + currentLevel;
+        workspace = Blockly.inject(blocklyDiv, {media: 'media/', toolbox: document.getElementById(curToolbox)});
+      }
+      
+    }
+
+    function levelControl(){
+      if(currentLevel == 1){
+        Blockly.Xml.domToWorkspace(workspace, document.getElementById('startBlocks'));
+        Blockly.SNAP_RADIUS *= 3; //Increased snap radius so it is more obvious
+      }
+      else if(currentLevel == 2){
+        Blockly.Xml.domToWorkspace(workspace, document.getElementById('startBlocks'));
+        Blockly.SNAP_RADIUS *= 2;
+      }
+      else if(currentLevel == 3){
+        Blockly.Xml.domToWorkspace(workspace, document.getElementById('startBlocksLvl3'));
+      }
+
+    }
+
+    //If maze is completed properly, it will call this function
+    function correctPath(){
+      //Modal popup that will force user to click OK and take them to next level.
+      var correctP = new Messi('Congratulations! You solved this level!',
+        {
+            modal: true,
+            closeButton: false,
+            width: '250px',
+            buttons: [{id:0, label: 'Next Level', val: 'OK'}],
+            callback: function(val) { nextLevel() }
+        }
+      );
+    }
+
+    //Need to fix check so it is based on maze
+    function check(){
+      if(Blockly.mainWorkspace.getAllBlocks().length == 2){
+        correctPath();
+      }
+      else{
+        alert('Nope');
+      }
+
+    }
+
+    function nextLevel(){
+      saveProgress();
+      //Reload webview
+      try {
+        Android.reloadWebview();
+      } catch (e) {
+        alert(e);
+      }
+
+    }
+
+    //Functions for dialogs
+    function levelHelp(){
+        if(Blockly.dragMode_ != 0){
+            //Don't change helps during drags
+            return;
+        }
+        
+        if(dialog){
+          dialog.unload();
+        }
+
+        if(currentLevel == 1){
+            if(Blockly.mainWorkspace.getAllBlocks().length < 2){
+                dialog = new Messi('Lets try and add some seconds to the move forward block. Drag the number block, and place it inside of the move forward block.',
+                  {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '130px', left: '20px' } });
+
+            }
+            else if(Blockly.mainWorkspace.getAllBlocks().length == 2){
+                dialog = new Messi('Now lets try and send this code to mozi! Press the Run button.',
+                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '100px', left: '200px' } });
+            }
+        }
+
+        else if(currentLevel == 2){
+           if(Blockly.mainWorkspace.getAllBlocks().length < 2){
+                dialog = new Messi('Lets add some seconds to a move forward block.',
+                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '20px' } });
+
+            }
+            else if (Blockly.mainWorkspace.getAllBlocks().length == 2){
+                dialog = new Messi('Tap the dropdown menu on the number block to change the value!',
+                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '100px', left: '200px' } });
+            }
+            else if(Blockly.mainWorkspace.getAllBlocks().length == 3){
+                dialog = new Messi('Lets try and attach a turn block to the bottom of the stack to help complete the maze!',
+                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '100px', left: '200px' } });
+            }
+
+
+        }
+        //if block level
+        else if(currentLevel == 3){
+
+          if(Blockly.mainWorkspace.getAllBlocks().length < 2){
+                dialog = new Messi('Lets go into the Logic section and grab a boolean statement block. This block checks to see if the statement is true or false and returns that value. Try and add this block to the if block!',
+                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '20px' } });
+
+            }
+            else if (Blockly.mainWorkspace.getAllBlocks().length == 2){
+                dialog = new Messi('Now that we the boolean statement block, lets add some values inside to finish that boolean statement.',
+                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '100px', left: '200px' } });
+            }
+            else if(Blockly.mainWorkspace.getAllBlocks().length == 4){
+                dialog = new Messi('Now lets add some Mozi specific blocks inside of the if block, and if the boolean statement is true, they will run! ',
+                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '100px', left: '200px' } });
+            }
+
+        }
+        //Delay block level
+        else if(currentLevel == 4){
+          // Need to change, If delay is the only block in the workspace
+          if(Blockly.mainWorkspace.getAllBlocks().length == 2){
+             dialog = new Messi('You won\'t see any code if you run this program. You can\'t delay Mozi if it wasn\'t doing anything!',
+                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '20px' } });
+          }
+          else{
+            dialog = new Messi('The delay block tells mozi to pause what it is doing. Once you put a value inside of the delay block, you can control how long mozi pauses for! Try and make Mozi move with delays inside of the program.',
+                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '20px' } });
+
+          }
+
+        }
+        //Count With block level
+
+//         Count with block
+// After a second, Dialog prompts to talk about the Count block. "The count with assigns a number to "
+        else if(currentLevel == 5){
+             if(Blockly.mainWorkspace.getAllBlocks().length < 2){
+             dialog = new Messi('',
+                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '20px' } });
+          }
+
+        }
+
+        //Repeat block level
+
+//         Repeat repeat block
+// After a second, Dialog prompts to talk about the while block. "The repeat block is similar to the count with block. They both"
+        else if(currentLevel == 6){
+
+        }
+        //Variable block level
+
+//         Variable blocks
+// Prompt for the set block with variable name and a value
+// Second variable block can then be placed in another block after the set block is attached to a stack
+        else if(currentLevel == 7){
+
+        }
+
+        //Function block level
+        else if(currentLevel == 8){
+
+        }
+
+        dialog.show();
+
+      }
+
+      function runCode() {
+      // Generate Bitlash code and run it.
+      var code = Blockly.Bitlash.workspaceToCode(workspace);
+      try {
+        Android.talkToArduino(code);
+      } catch (e) {
+        alert(e);
+      }
+    }
+
+
+  </script>
+</body>
+</html>
