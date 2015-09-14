@@ -52,7 +52,6 @@ public class MoziActivity extends AppCompatActivity {
 
         // Boolean to set the active tab
         tutorial = getIntent().getExtras().getBoolean("tutorial");
-
         loadPrefs();
 
         initProgramWebView();
@@ -416,6 +415,15 @@ public class MoziActivity extends AppCompatActivity {
                 Intent settingsIntent = new Intent(this, SettingsActivity.class);
                 startActivity(settingsIntent);
                 return true;
+            }
+
+            case R.id.runProgram:{
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+                    tutWebView.evaluateJavascript("check()", null);
+                } else {
+                    tutWebView.loadUrl("javascript:check();");
+                }
+
             }
         }
         return super.onOptionsItemSelected(item);

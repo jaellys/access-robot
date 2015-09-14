@@ -232,8 +232,8 @@
 
    //Function Declarations
     function mazeInit(){
-        // currentLevel = curLevel();
-        currentLevel = 5;
+        currentLevel = curLevel();
+        // currentLevel = 5;
         injectToolbox();
         levelControl();
 
@@ -280,10 +280,9 @@
 
     //Check if the blocks placed in workspace match the level reqs
     function check(){
-        var solvedMaze;
+        var solvedMaze = true;
 
         if (solvedMaze == true){
-            
             //Once sprite is done moving, call correctPath()
             correctPath();
         }
@@ -323,7 +322,6 @@
                 alert(e);
               }
         }
-    }
 
     //Functions for dialogs
     function levelHelp(){
