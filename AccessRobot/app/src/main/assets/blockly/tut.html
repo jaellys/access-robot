@@ -1,12 +1,8 @@
-<!--Messi Jquery-->
-<!--http://messijs.github.io/MessiJS/-->
-<!--Level 1: Have the user move mozi forward 1 step-->
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Mozi: Level 1</title>
+    <title>Mozi Tutorial</title>
     <link rel="stylesheet" type="text/css" href="../blockly/jQuery/Messi/messi.min.css">
     <link rel="stylesheet" type="text/css" href="blocklyAreaCSS.css">
     <script src="../blockly/jQuery/jquery_2_1_4_min.js"></script>
@@ -249,15 +245,6 @@
         
     }
 
-    function saveProgress(){
-    var nextLevel = currentLevel + 1;
-    try {
-        Android.saveLevel(nextLevel);
-      } catch (e) {
-        alert(e);
-      }
-    }
-
     function curLevel(){
        try {
         var curNum = Android.getCurrentLevel();
@@ -291,6 +278,18 @@
 
     }
 
+    //Check if the blocks placed in workspace match the level reqs
+    function check(){
+        var solvedMaze;
+
+        if (solvedMaze == true){
+            
+            //Once sprite is done moving, call correctPath()
+            correctPath();
+        }
+        
+    }
+
     //If maze is completed properly, it will call this function
     function correctPath(){
       //Modal popup that will force user to click OK and take them to next level.
@@ -305,26 +304,25 @@
       );
     }
 
-    //Need to fix check so it is based on maze
-    function check(){
-      if(Blockly.mainWorkspace.getAllBlocks().length == 2){
-        correctPath();
-      }
-      else{
-        alert('Nope');
-      }
-
+    function nextLevel(){
+          saveProgress();
+          //Reload webview
+          try {
+            Android.reloadWebview();
+          } catch (e) {
+            alert(e);
+          }
     }
 
-    function nextLevel(){
-      saveProgress();
-      //Reload webview
-      try {
-        Android.reloadWebview();
-      } catch (e) {
-        alert(e);
-      }
-
+    function saveProgress(){
+        if(currentLevel < 10){}
+            var nextLevel = currentLevel + 1;
+            try {
+                Android.saveLevel(nextLevel);
+              } catch (e) {
+                alert(e);
+              }
+        }
     }
 
     //Functions for dialogs

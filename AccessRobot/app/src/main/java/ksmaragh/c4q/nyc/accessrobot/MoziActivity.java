@@ -6,6 +6,7 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -26,6 +27,12 @@ public class MoziActivity extends AppCompatActivity {
     private static final int REQUEST_CONNECT_DEVICE_SECURE = 1;
     private static final int REQUEST_CONNECT_DEVICE_INSECURE = 2;
     private static final int REQUEST_ENABLE_BT = 3;
+    private static final String MyPREFERENCES = "MyPrefs" ;
+    private static final String LEVEL = "Level";
+    private static final String BLOCKLY_URL = "file:///android_asset/blockly/blockly.html";
+    private static final String BLOCKLY_TUT_URL = "file:///android_asset/blockly/tut.html";
+    private int currentLevel;
+
     private String mConnectedDeviceName = null;
     private StringBuffer mOutStringBuffer;
     private BluetoothAdapter mBluetoothAdapter = null;
@@ -46,6 +53,8 @@ public class MoziActivity extends AppCompatActivity {
         // Boolean to set the active tab
         tutorial = getIntent().getExtras().getBoolean("tutorial");
 
+        loadPrefs();
+
         initProgramWebView();
         initTutWebView();
         initBluetooth();
@@ -59,7 +68,7 @@ public class MoziActivity extends AppCompatActivity {
         wSettings = webView.getSettings();
         wSettings.setJavaScriptEnabled(true);
         webView.addJavascriptInterface(new myJsInterface(this), "Android");
-        webView.loadUrl("file:///android_asset/blockly/blockly.html");
+        webView.loadUrl(BLOCKLY_URL);
         for (int i = 0; i < 200; i++) {
             webView.zoomOut();
         }
@@ -71,7 +80,7 @@ public class MoziActivity extends AppCompatActivity {
         tutSettings = tutWebView.getSettings();
         tutSettings.setJavaScriptEnabled(true);
         tutWebView.addJavascriptInterface(new myJsInterface(this), "Android");
-        tutWebView.loadUrl("file:///android_asset/blockly/tut.html");
+        tutWebView.loadUrl(BLOCKLY_TUT_URL);
     }
 
     private void initActionBar() {
@@ -122,7 +131,46 @@ public class MoziActivity extends AppCompatActivity {
              sendMessage(msg);
         }
 
+        @JavascriptInterface
+        public void saveLevel(int num) {
+            savePrefs(num);
+        }
+
+        @JavascriptInterface
+        public int getCurrentLevel(){
+            return currentLevel;
+        }
+        @JavascriptInterface
+        public void reloadWebview(){
+
+            tutWebView.post(new Runnable(){
+
+                @Override
+                public void run() {
+                    tutWebView.reload();
+                }
+            });
+        }
+
     }
+
+    /**
+     * Shared Preferences
+     */
+    private void savePrefs(int level){
+        currentLevel = level;
+        SharedPreferences pref = getApplicationContext().getSharedPreferences(MyPREFERENCES,Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putInt(LEVEL, level);
+        editor.apply();
+
+    }
+
+    private void loadPrefs(){
+        SharedPreferences pref = getApplicationContext().getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        currentLevel = pref.getInt(LEVEL, 1);
+    }
+
 
     /**
      * Set up the UI and background operations for chat.
