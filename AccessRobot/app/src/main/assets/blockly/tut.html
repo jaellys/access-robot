@@ -237,7 +237,7 @@
    //Function Declarations
     function mazeInit(){
         // currentLevel = curLevel();
-        currentLevel = 4;
+        currentLevel = 5;
         injectToolbox();
         levelControl();
 
@@ -400,22 +400,30 @@
 
         }
         //Count With block level
-
-//         Count with block
-// After a second, Dialog prompts to talk about the Count block. "The count with assigns a number to "
         else if(currentLevel == 5){
-             if(Blockly.mainWorkspace.getAllBlocks().length < 2){
-             dialog = new Messi('',
+             if(Blockly.mainWorkspace.getAllBlocks().length < 1){
+             dialog = new Messi('The \'Count With\' block starts a loop that lasts for a specific number of times. It starts from the starting number, to the ending number, and increases by another number. Let\'s add one to the program! ',
                 {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '20px' } });
-          }
-
+            }
+            else if(Blockly.mainWorkspace.getAllBlocks().length == 1){
+             dialog = new Messi('Lets add some numbers to the count with block, and some statement for it to run! ',
+                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '20px' } });
+            }
         }
 
         //Repeat block level
-
-//         Repeat repeat block
-// After a second, Dialog prompts to talk about the while block. "The repeat block is similar to the count with block. They both"
         else if(currentLevel == 6){
+
+            if(Blockly.mainWorkspace.getAllBlocks().length < 1){
+             dialog = new Messi('The repeat block runs a loop based on the attached condition. The loop will run as long as the attached block is true. Try it out!',
+                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '20px' } });
+            }
+            
+            //Check to see if the repeat block is being used
+            // else if(Blockly.mainWorkspace.getAllBlocks().length == 1){
+            //  dialog = new Messi('',
+            //     {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '20px' } });
+            // }
 
         }
         //Variable block level
@@ -425,11 +433,31 @@
 // Second variable block can then be placed in another block after the set block is attached to a stack
         else if(currentLevel == 7){
 
+            if(Blockly.mainWorkspace.getAllBlocks().length < 1){
+             dialog = new Messi('The \'Count With\' block starts a loop that lasts for a specific number of times. It starts from the starting number, to the ending number, and increases by another number. Let\'s add one to the program! ',
+                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '20px' } });
+            }
+            else if(Blockly.mainWorkspace.getAllBlocks().length == 1){
+             dialog = new Messi('Lets add some numbers to the count with block, and some statement for it to run! ',
+                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '20px' } });
+            }
         }
 
         //Function block level
+
+        //It's called a function because you are doing this
+        //Explain a function by an example
+
         else if(currentLevel == 8){
 
+            if(Blockly.mainWorkspace.getAllBlocks().length < 1){
+             dialog = new Messi('The \'Count With\' block starts a loop that lasts for a specific number of times. It starts from the starting number, to the ending number, and increases by another number. Let\'s add one to the program! ',
+                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '20px' } });
+            }
+            else if(Blockly.mainWorkspace.getAllBlocks().length == 1){
+             dialog = new Messi('Lets add some numbers to the count with block, and some statement for it to run! ',
+                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '20px' } });
+            }
         }
 
         dialog.show();
