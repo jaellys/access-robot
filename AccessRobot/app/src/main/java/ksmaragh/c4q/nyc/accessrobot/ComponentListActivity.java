@@ -1,9 +1,10 @@
 package ksmaragh.c4q.nyc.accessrobot;
 
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -11,16 +12,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.HashMap;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class ComponentListActivity extends Activity
+public class ComponentListActivity extends FragmentActivity
         implements View.OnTouchListener {
 
     @Bind(R.id.tv_parts_instructions)
     TextView tv_parts_instructions;
     @Bind(R.id.iv_mozi)
     ImageView iv;
+
+    HashMap<String, Integer> componentImages;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -77,7 +82,6 @@ public class ComponentListActivity extends Activity
             case MotionEvent.ACTION_UP:
                 // On the UP, we do the click action.
                 // The hidden image (image_areas) has three different hotspots on it.
-                // The colors are red, blue, and yellow.
                 // Use image_areas to determine which region the user touched.
                 int touchColor = getHotspotColor(R.id.iv_hotspots, evX, evY);
 
@@ -88,22 +92,40 @@ public class ComponentListActivity extends Activity
                 ColorTool ct = new ColorTool();
                 int tolerance = 25;
                 nextImage = R.drawable.mozi_parts;
+                String partName = null;
+                String partInfo = null;
+
                 if (ct.closeMatch(Color.RED, touchColor, tolerance)) {
-                    // Toasting now, but edit to pop-up dialog with image + info.
-                    toast("Arduino");
+                    partName = getString(R.string.part_arduino_name);
+                    partInfo = getString(R.string.part_arduino_info);
+                    showComponentDialog(partName, partInfo);
                 } else if (ct.closeMatch(Color.BLUE, touchColor, tolerance)) {
-                    toast("Ultrasonic range finder");
+                    partName = getString(R.string.part_ultrasonic_range_finder_name);
+                    partInfo = getString(R.string.part_ultrasonic_range_finder_info);
+                    showComponentDialog(partName, partInfo);
                 } else if (ct.closeMatch(Color.YELLOW, touchColor, tolerance)) {
-                    toast("Diode");
+                    partName = getString(R.string.part_leds_name);
+                    partInfo = getString(R.string.part_leds_info);
+                    showComponentDialog(partName, partInfo);
                 } else if (ct.closeMatch(Color.WHITE, touchColor, tolerance) ||
                         (ct.closeMatch(Color.CYAN, touchColor, tolerance))) {
-                    toast("Breadboard + jumper wires");
+                    partName = getString(R.string.part_breadboard_wires_name);
+                    partInfo = getString(R.string.part_breadboard_wires_info);
+                    showComponentDialog(partName, partInfo);
                 } else if (ct.closeMatch(Color.MAGENTA, touchColor, tolerance)) {
-                    toast("Bluetooth transceiver");
+                    partName = getString(R.string.part_usb_otg_bt_name);
+                    partInfo = getString(R.string.part_usb_otg_bt_info);
+                    showComponentDialog(partName, partInfo);
                 } else if (ct.closeMatch(Color.GREEN, touchColor, tolerance)) {
-                    toast("Mini servo motors");
+                    partName = getString(R.string.part_mini_servos_name);
+                    partInfo = getString(R.string.part_mini_servos_info);
+                    showComponentDialog(partName, partInfo);
                 } else if (ct.closeMatch(Color.LTGRAY, touchColor, tolerance)) {
-                    toast("Resistor");
+                    partName = getString(R.string.part_resistors_name);
+                    partInfo = getString(R.string.part_resistors_info);
+                    showComponentDialog(partName, partInfo);
+                } else {
+                    // nothing
                 }
 
                 // If the next image is the same as the last image, go back to the default.
@@ -159,4 +181,13 @@ public class ComponentListActivity extends Activity
         Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
     }
 
+    /**
+     * Show the dialog for a component.
+     */
+
+    private void showComponentDialog(String partName, String partInfo) {
+        FragmentManager fm = getSupportFragmentManager();
+        ComponentDialog componentDialog = ComponentDialog.newInstance(partName, partInfo);
+        componentDialog.show(this.getFragmentManager(), "PART");
+    }
 }
