@@ -45,5 +45,7 @@
     <string name="interface_type_serial">Serial cable</string>
     <string name="title_activity_my_programs">MyProgramsActivity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_component_list">Component List</string>
+    <string name="parts_instructions">Long press on the screen to reveal what parts of mozi you can learn about! Tap those parts to learn more.</string>
 
 </resources>

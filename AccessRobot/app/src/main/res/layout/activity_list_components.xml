@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:id="@+id/mozi_frame"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#ffffff">
+
+    <TextView
+        android:id="@+id/tv_parts_instructions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="50sp"
+        android:text="@string/parts_instructions"
+        android:textSize="18sp"/>
+
+        <ImageView
+            android:id="@+id/iv_hotspots"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/mozi_parts_hotspots"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/iv_mozi"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/mozi_parts" />
+
+    </FrameLayout>
