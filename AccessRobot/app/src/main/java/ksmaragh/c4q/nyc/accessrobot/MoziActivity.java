@@ -33,6 +33,7 @@ public class MoziActivity extends AppCompatActivity {
     private final BluetoothHandler mHandler = new BluetoothHandler(this);
     private WebView webView, tutWebView;;
     private WebSettings wSettings, tutSettings;
+    private boolean tutorial;
 
     private static final String TAG = "MoziActivity";
 
@@ -41,9 +42,12 @@ public class MoziActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_code);
+
+        // Boolean to set the active tab
+        tutorial = getIntent().getExtras().getBoolean("tutorial");
+
         initProgramWebView();
         initTutWebView();
-
         initBluetooth();
         initActionBar();
 
@@ -87,13 +91,13 @@ public class MoziActivity extends AppCompatActivity {
                 .setText("Learn")
                 .setTabListener(new TabListener(
                         this, "learn", tutWebView));
-        actionBar.addTab(tab);
+        actionBar.addTab(tab, tutorial);
 
         tab = actionBar.newTab()
                 .setText("Program")
                 .setTabListener(new TabListener(
                         this, "program", webView));
-        actionBar.addTab(tab, true);
+        actionBar.addTab(tab, !tutorial);
 
     }
 

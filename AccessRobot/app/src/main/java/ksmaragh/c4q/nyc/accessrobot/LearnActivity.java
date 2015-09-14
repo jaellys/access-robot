@@ -120,6 +120,7 @@ public class LearnActivity extends AppCompatActivity {
 
     private void startBlocklyTutorial() {
         Intent intent = new Intent(this, MoziActivity.class);
+        intent.putExtra("tutorial", true);
         startActivity(intent);
 
     }
@@ -168,9 +169,11 @@ public class LearnActivity extends AppCompatActivity {
 
             } else if (mTag.equals("learn")) {
                 Intent intent = new Intent(mActivity, MoziActivity.class);
+                intent.putExtra("tutorial", true);
                 mActivity.startActivity(intent);
             } else if (mTag.equals("program")) {
                 Intent intent = new Intent(mActivity, MoziActivity.class);
+                intent.putExtra("tutorial", false);
                 mActivity.startActivity(intent);
             }
         }
