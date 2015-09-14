@@ -34,6 +34,10 @@
             android:label="@string/title_activity_code"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".ComponentListActivity"
+            android:label="@string/title_activity_component_list"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".MoziActivity"
             android:label=""
             android:screenOrientation="portrait" >

@@ -10,7 +10,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -101,11 +100,8 @@ public class LearnActivity extends AppCompatActivity {
     }
 
     private void startComponentListActivity() {
-        //TODO: link to the correct activity
-        Toast.makeText(this, "Component list coming soon", Toast.LENGTH_LONG).show();
-
-//        Intent intent = new Intent(this, ComponentListActivity.class);
-//        startActivity(intent);
+        Intent intent = new Intent(this, ComponentListActivity.class);
+        startActivity(intent);
     }
 
     private void startPartsActivity() {
