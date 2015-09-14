@@ -29,7 +29,6 @@ public class LearnActivity extends AppCompatActivity {
     Button btnLearnBlockly;
 
 
-
     View.OnClickListener buttonClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -53,8 +52,6 @@ public class LearnActivity extends AppCompatActivity {
 
         }
     };
-
-
 
 
     @Override
@@ -113,7 +110,7 @@ public class LearnActivity extends AppCompatActivity {
     private void playMoziAssemblyVideo() {
         String videoId = "DXpl0H1tLcU";
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + videoId));
-        intent.putExtra("force_fullscreen",true);
+        intent.putExtra("force_fullscreen", true);
         startActivity(intent);
 
     }

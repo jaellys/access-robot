@@ -47,5 +47,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_component_list">Component List</string>
     <string name="parts_instructions">Long press on the screen to reveal what parts of mozi you can learn about! Tap those parts to learn more.</string>
+    <string name="btn_program">Start programming</string>
+    <string name="btn_build">Learn to build</string>
+    <string name="btn_order">Order hardware</string>
+    <string name="btn_mozi">Meet Mozi</string>
 
 </resources>

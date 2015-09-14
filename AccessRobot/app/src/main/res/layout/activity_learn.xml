@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="top"
-    android:background="#ffffff"
+    android:background="@color/white"
     android:gravity="top"
     android:orientation="vertical">
 
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|top"
         android:adjustViewBounds="true"
-        android:background="#ffffff"
+        android:background="@color/white"
         android:gravity="center_horizontal|top"
         android:scaleType="fitXY"
         android:src="@drawable/mozi_header_multi" />
@@ -21,72 +21,49 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="bottom"
-        android:background="#ffffff"
+        android:background="@color/white"
         android:gravity="bottom"
         android:orientation="vertical">
 
         <Button
             android:id="@+id/btn_learn_mozi_components"
+            style="@style/learn_buttons"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
             android:layout_marginTop="24dp"
             android:layout_weight="1"
             android:background="@drawable/button_pink"
             android:stateListAnimator="@null"
-            android:text="Meet Mozi"
-            android:textAllCaps="false"
-            android:textColor="#ffffff"
-            android:textSize="32sp" />
+            android:text="@string/btn_mozi" />
 
         <Button
             android:id="@+id/btn_order_parts"
+            style="@style/learn_buttons"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
             android:layout_weight="1"
             android:background="@drawable/button_orange"
             android:stateListAnimator="@null"
-            android:text="Order hardware"
-            android:textAllCaps="false"
-            android:textColor="#ffffff"
-            android:textSize="32sp" />
+            android:text="@string/btn_order" />
 
         <Button
             android:id="@+id/btn_learn_assembly"
+            style="@style/learn_buttons"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
             android:layout_weight="1"
             android:background="@drawable/button_yellow"
             android:stateListAnimator="@null"
-            android:text="Learn to build"
-            android:textAllCaps="false"
-            android:textColor="#ffffff"
-            android:textSize="32sp" />
+            android:text="@string/btn_build" />
 
         <Button
             android:id="@+id/btn_learn_blockly"
+            style="@style/learn_buttons"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
             android:layout_weight="1"
             android:background="@drawable/button_blue"
             android:stateListAnimator="@null"
-            android:text="Start programming"
-            android:textAllCaps="false"
-            android:textColor="#ffffff"
-            android:textSize="32sp" />
+            android:text="@string/btn_program" />
     </LinearLayout>
 </LinearLayout>

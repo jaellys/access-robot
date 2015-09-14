@@ -15,5 +15,7 @@ public class MoziApplication extends Application {
         super.onCreate();
         Parse.enableLocalDatastore(this);
         Parse.initialize(this, "2RYYOW1MtNULciwQYQoYxfiGX3f9lujssswVpbCV", "bTey4stJbGMhcN0raZaY0AdkqoJhxZcR4gpVkcBn");
+
+        FontsOverride.setDefaultFont(this, "MONOSPACE", "Lekton-Bold.ttf");
     }
 }
