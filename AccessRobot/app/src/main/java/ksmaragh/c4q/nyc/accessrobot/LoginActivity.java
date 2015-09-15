@@ -85,7 +85,8 @@ public class LoginActivity extends ActionBarActivity {
             public void done(ParseUser user, ParseException e) {
                 if (user != null) {
                     // Hooray! The user is logged in.
-                    Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                    Intent intent = new Intent(getBaseContext(), MoziActivity.class);
+                    intent.putExtra("tutorial", false);
                     startActivity(intent);
                 } else {
                     // Signup failed. Look at the ParseException to see what happened.

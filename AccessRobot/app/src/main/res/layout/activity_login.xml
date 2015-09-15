@@ -33,7 +33,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
-                android:textColor="@color/white"
                 android:inputType="textEmailAddress"
                 android:hint="Email"
                 android:id="@+id/email" />
@@ -42,7 +41,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:textColor="@color/white"
                 android:hint="Password"
                 android:id="@+id/password" />
 
@@ -59,7 +57,7 @@
                     android:layout_width="wrap_content"
                     android:text="Login"
                     android:textAllCaps="false"
-                    android:textColor="#DF3A7C"
+                    android:textColor="@color/white"
                     android:background="@drawable/button_pink"
                     android:id="@+id/login_button" />
 
@@ -69,7 +67,7 @@
                     android:layout_marginLeft="30dp"
                     android:text="Sign Up"
                     android:textAllCaps="false"
-                    android:textColor="#DF3A7C"
+                    android:textColor="@color/white"
                     android:background="@drawable/button_pink"
                     android:id="@+id/signup_button" />
             </LinearLayout>

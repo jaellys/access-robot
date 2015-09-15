@@ -96,9 +96,9 @@ public class SignupActivity extends ActionBarActivity {
                     // Hooray! Let them use the app now.
                     Toast.makeText(getBaseContext(), "Welcome!" , Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(getBaseContext(), MoziActivity.class);
+                    intent.putExtra("tutorial", false);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(getBaseContext(), e.toString(), Toast.LENGTH_LONG).show();
                     // Sign up didn't succeed. Look at the ParseException
                     // to figure out what went wrong
                     if (e.toString().contains("invalid email")) {
