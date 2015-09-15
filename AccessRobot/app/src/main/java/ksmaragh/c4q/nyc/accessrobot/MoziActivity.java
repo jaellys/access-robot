@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -27,8 +28,8 @@ public class MoziActivity extends AppCompatActivity {
     private static final int REQUEST_CONNECT_DEVICE_SECURE = 1;
     private static final int REQUEST_CONNECT_DEVICE_INSECURE = 2;
     private static final int REQUEST_ENABLE_BT = 3;
-    private static final String MyPREFERENCES = "MyPrefs" ;
     private static final String LEVEL = "Level";
+    private static final String TUTORIAL = "Tutorial";
     private static final String BLOCKLY_URL = "file:///android_asset/blockly/blockly.html";
     private static final String BLOCKLY_TUT_URL = "file:///android_asset/blockly/tut.html";
     private int currentLevel;
@@ -49,9 +50,6 @@ public class MoziActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_code);
-
-        // Boolean to set the active tab
-        tutorial = getIntent().getExtras().getBoolean("tutorial");
         loadPrefs();
 
         initProgramWebView();
@@ -151,6 +149,11 @@ public class MoziActivity extends AppCompatActivity {
             });
         }
 
+        @JavascriptInterface
+        public void reloadMoziActivity(){
+            finish();
+            startActivity(getIntent());
+        }
     }
 
     /**
@@ -158,16 +161,24 @@ public class MoziActivity extends AppCompatActivity {
      */
     private void savePrefs(int level){
         currentLevel = level;
-        SharedPreferences pref = getApplicationContext().getSharedPreferences(MyPREFERENCES,Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = pref.edit();
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = preferences.edit();
         editor.putInt(LEVEL, level);
+
+        if(currentLevel > 8){
+            editor.putBoolean(TUTORIAL,false);
+        }
+        else {
+            editor.putBoolean(TUTORIAL,true);
+        }
         editor.apply();
 
     }
 
     private void loadPrefs(){
-        SharedPreferences pref = getApplicationContext().getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-        currentLevel = pref.getInt(LEVEL, 1);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        tutorial = preferences.getBoolean(TUTORIAL,true);
+        currentLevel = preferences.getInt(LEVEL, 1);
     }
 
 
@@ -419,9 +430,9 @@ public class MoziActivity extends AppCompatActivity {
 
             case R.id.runProgram:{
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
-                    tutWebView.evaluateJavascript("check()", null);
+                    tutWebView.evaluateJavascript("checkAnswer()", null);
                 } else {
-                    tutWebView.loadUrl("javascript:check();");
+                    tutWebView.loadUrl("javascript:checkAnswer();");
                 }
 
             }
