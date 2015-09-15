@@ -53,7 +53,7 @@
     <string name="tv_meet_mozi">Hi, I\'m mozi! ♥</string>
     <string name="part_arduino_name">Arduino Uno</string>
     <string name="part_arduino_info">This is my Arduino. It works for me like a brain by telling my wheels how to spin, my lights when to light up, and can even become a brain for other neat projects! \n\nYou might have a generic ATmega328P board—that works, too!</string>
-    <string name="part_breadboard_wires_name">Breadboard \n + jumper wires</string>
+    <string name="part_breadboard_wires_name">Breadboard \n + \njumper wires</string>
     <string name="part_breadboard_wires_info">My breadboard and jumper wires go together so that electricity can flow so I can move and light up. Be sure you connect my wires correctly, though—the current flowing through the Arduino isn\'t strong enough to shock you, but it could fry me!</string>
     <string name="part_mini_servos_name">Mini servos</string>
     <string name="part_mini_servos_info">My mini servos are a type of motor that can be let me move forward, backward, and even turn, depending on how you program me!</string>

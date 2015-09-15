@@ -12,8 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.HashMap;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -24,8 +22,6 @@ public class ComponentListActivity extends FragmentActivity
     TextView tv_parts_instructions;
     @Bind(R.id.iv_mozi)
     ImageView iv;
-
-    HashMap<String, Integer> componentImages;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
