@@ -28,9 +28,9 @@
 
     <!-- Onboarding -->
     <string name="onboarding_title_01_build">Build a bot!</string>
-    <string name="onboarding_text_01_build">We help you order parts and build your very own mozi.</string>
+    <string name="onboarding_text_01_build">We help you order parts and build your very own Mozi.</string>
     <string name="onboarding_title_02_hack">Learn to hack!</string>
-    <string name="onboarding_text_02_hack">With Google Blockly, you can program mozi to follow your commands.</string>
+    <string name="onboarding_text_02_hack">With Google Blockly, you can program Mozi to follow your commands.</string>
     <string name="onboarding_title_03_share">Share your work!</string>
     <string name="onboarding_text_03_share">Show off and share your work by uploading to our website.</string>
     <string name="onboarding_title_04_start">Let\'s get started!</string>
@@ -50,7 +50,7 @@
 
     <!-- Components Activity -->
     <string name="parts_instructions">You can tap on my components to learn more about them. If you\'re not sure where to tap, long press around me to get a hint!</string>
-    <string name="tv_meet_mozi">Hi, I\'m mozi! ♥</string>
+    <string name="tv_meet_mozi">Hi, I\'m Mozi! ♥</string>
     <string name="part_arduino_name">Arduino Uno</string>
     <string name="part_arduino_info">This is my Arduino. It works for me like a brain by telling my wheels how to spin, my lights when to light up, and can even become a brain for other neat projects! \n\nYou might have a generic ATmega328P board—that works, too!</string>
     <string name="part_breadboard_wires_name">Breadboard \n + \njumper wires</string>
@@ -62,9 +62,9 @@
     <string name="part_usb_otg_bt_name">USB to OTG cable/Bluetooth chip</string>
     <string name="part_usb_otg_bt_info">When I first come to life, I need my USB OTG cable so that a creation message can get sent from your Android device to me. After that first set-up, I can receive messages via Bluetooth, no wires needed!</string>
     <string name="part_ultrasonic_range_finder_name">Ultrasonic range finder</string>
-    <string name="part_ultrasonic_range_finder_info">My ultrasonic range finder are my "eyes"—they not only look like eyes, they work like them, letting me detect what is near me!</string>
+    <string name="part_ultrasonic_range_finder_info">My ultrasonic range finder works like your "eyes". It not only looks like eyes, but it works like them, letting me detect what is near me!</string>
     <string name="part_leds_name">LEDs</string>
-    <string name="part_leds_info">LED stands for light-emitting diode. LEDs are my lights that you can program to flash in different patterns/ways!</string>
+    <string name="part_leds_info">LED stands for light-emitting diode. LEDs are my lights that you can program to flash in different ways!</string>
     <string name="part_resistors_name">Resistors</string>
     <string name="part_resistors_info">My resistors let me control my energy so that I can put it to good use!</string>
     <string name="got_it">Got it!</string>
@@ -73,7 +73,7 @@
     <string name="btn_program">Start programming</string>
     <string name="btn_build">Learn to build</string>
     <string name="btn_order">Order hardware</string>
-    <string name="btn_mozi">Meet mozi</string>
+    <string name="btn_mozi">Meet Mozi</string>
 
     <string name="interface_type_label">Interface type:</string>
     <string name="interface_type_bluetooth">Bluetooth</string>

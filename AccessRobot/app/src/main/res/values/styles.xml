@@ -9,6 +9,20 @@
         <item name="colorPrimaryDark">@color/dark_teal</item>
         <!--   theme UI controls like checkboxes and text fields -->
         <item name="android:typeface">monospace</item>
+        <item name="android:actionBarTabTextStyle">@style/ActionBarTabTextStyle.Tabtheme</item>
+        <item name="actionBarTabTextStyle">@style/ActionBarTabTextStyle.Tabtheme</item>
+    </style>
+
+    <style name="Theme.Tabtheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+
+        <item name="android:actionBarTabTextStyle">@style/ActionBarTabTextStyle.Tabtheme</item>
+        <item name="actionBarTabTextStyle">@style/ActionBarTabTextStyle.Tabtheme</item>
+
+    </style>
+
+    <style name="ActionBarTabTextStyle.Tabtheme" parent="Widget.AppCompat.Light.ActionBar.TabText">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="learn_buttons">
