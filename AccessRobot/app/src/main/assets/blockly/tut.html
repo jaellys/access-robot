@@ -237,7 +237,7 @@
    //Function Declarations
     function mazeInit(){
         currentLevel = curLevel();
-        // currentLevel = 4;
+        // currentLevel = 1;
         injectToolbox();
         levelControl();
 
@@ -458,12 +458,12 @@
         if(currentLevel == 1){
             if(workspace.getAllBlocks().length < 2){
                 dialog = new Messi('Lets try and add some seconds to the move forward block. Drag the number block, and place it inside of the move forward block.',
-                  {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '130px', left: '20px' } });
+                  {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '20px' } });
 
             }
             else if(isInt(topBlock.getChildren()) == true){
-                dialog = new Messi('Now lets try and send this code to mozi! Press the Run button.',
-                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '100px', left: '200px' } });
+                dialog = new Messi('Now lets try and send this code to mozi! Press the \'Run Program\' option in the menu at the top of the screen!',
+                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '200px', left: '200px' } });
             }
         }
 
@@ -486,14 +486,14 @@
                 
                 if(showDialog){
                     dialog = new Messi('Did you know, you can tap the dropdown menu on a number block to change the value?',
-                    {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '100px' } });
+                    {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '150px' } });
                 }
 
             }
             
             if(thirdDialog){
                 dialog = new Messi('Lets try and attach a turn block to the bottom of the stack to make Mozi turn!',
-                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '100px' } });
+                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '150px' } });
             }
 
         }
@@ -502,7 +502,7 @@
 
           if(workspace.getAllBlocks().length < 2){
                 dialog = new Messi('The if block allows Mozi to make a decision based on whether it\'s attached statement is true or not. Lets go into the Logic section and grab a boolean statement block. This block checks to see if the statement is true or false and returns that value. Try and add this block to the if block!',
-                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '20px' } });
+                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '200px' } });
 
             }
             
@@ -510,12 +510,12 @@
                 //Checks to see if the boolean block has valid inputs before this msg is shown
                 if(isInt(topBlock.getChildren()[0].getChildren()[0]) == true  && isInt(topBlock.getChildren()[0].getChildren()[1]) == true){
                     dialog = new Messi('Now lets add some Mozi specific blocks inside of the if block. If the boolean statement is true, they will run! ',
-                    {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '100px' } });
+                    {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '150px' } });
                 }
                 //Checks the top block to see if it's first child is a boolean block
                 else if (topBlock.getChildren()[0].helpUrl == Blockly.Msg.LOGIC_COMPARE_HELPURL){
                     dialog = new Messi('Now that we have the boolean statement block, lets add some values inside to finish the boolean statement.',
-                    {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '100px' } });
+                    {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '200px' } });
                 }
             }
 
@@ -525,7 +525,7 @@
 
           if(workspace.getAllBlocks().length < 2){
             dialog = new Messi('The delay block tells mozi to pause what it is doing. Once you put a value inside of the delay block, you can control how long mozi pauses for! Try and make Mozi move with delays inside of the program.',
-                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '100px' } });
+                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '400px', left: '200px' } });
           }
 
         }
@@ -535,7 +535,7 @@
 
              if(workspace.getAllBlocks().length < 1){
              dialog = new Messi('The \'Count With\' block starts a loop that lasts for a specific number of times. It counts from the first number, to the second number. The count increases by the third number. Let\'s add this block to the program! ',
-                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '100px' } });
+                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '200px' } });
             }
             else if(workspace.getAllBlocks().length  >= 1 ){
 
@@ -544,7 +544,7 @@
                     var block = blocks[i];
                     if(block.helpUrl == Blockly.Msg.CONTROLS_FOR_HELPURL){
                         dialog = new Messi('Lets add some numbers to the count with block, and some statements inside for it to run! ',
-                        {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '100px' } });
+                        {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '420px', left: '200px' } });
                     }
                 }
              
@@ -556,7 +556,7 @@
 
             if(workspace.getAllBlocks().length < 1){
              dialog = new Messi('The repeat block runs a loop based on the attached condition. The loop will run as long as the attached block is true. Try it out!',
-                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '100px' } });
+                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '400px', left: '200px' } });
             }
             
             else if(workspace.getAllBlocks().length >= 1){
@@ -565,7 +565,7 @@
                     var block = blocks[i];
                     if(block.helpUrl == Blockly.Msg.CONTROLS_WHILEUNTIL_HELPURL){
                             dialog = new Messi('Attach a condition to make the block true, then fill it with some statements to run!',
-                            {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '100px' } });
+                            {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '250px' } });
                     }
                 }
             }
@@ -576,14 +576,14 @@
 
             if(workspace.getAllBlocks().length < 1){
              dialog = new Messi('Now we will learn about variables. A variable is a container that can hold a value. Let\'s start by creating our first variable. Take the \'set\' block and add it to the top of your program! ',
-                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '100px' } });
+                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '500px', left: '200px' } });
             }
             else if(workspace.getAllBlocks().length >= 1){
 
                 //Check to see if setblock is topblock
                 if(topBlock.helpUrl == Blockly.Msg.VARIABLES_SET_HELPURL){
                      dialog = new Messi('Now let\'s add a value to the set block.',
-                        {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '100px' } });
+                        {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '420px', left: '200px' } });
 
                      thirdDialog = true;
                 }                
@@ -593,7 +593,7 @@
             if(workspace.getAllBlocks().length >= 2 && thirdDialog == true){
 
                 dialog = new Messi('The variable in the dropdown menu will now have the value attached! Let\'s go into the toolbox and grab the variable block we just created and use it in our program! Hint: You can set the variable to a number, and place the variable block inside of a move forward block.',
-                    {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '300px', left: '100px' } });
+                    {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '500px', left: '200px' } });
             }
             
 
@@ -604,14 +604,14 @@
 
             if(workspace.getAllBlocks().length < 1){
              dialog = new Messi('Now we will learn about Functions. Functions are a great way to group a bunch of tasks together into a single block. We can put multiple blocks inside a \'to\' block and get a single block to act as that block. Drag a \'to\' block into your program.',
-                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '400px', left: '100px' } });
+                {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '600px', left: '200px' } });
             }
             else if(workspace.getAllBlocks().length >= 1){
 
                 if(topBlock.helpUrl == Blockly.Msg.PROCEDURES_DEFRETURN_HELPURL || topBlock.helpUrl == Blockly.Msg.PROCEDURES_DEFNORETURN_HELPURL){
                         
                         dialog = new Messi('Lets add some blocks inside of the function. Once your function is completed, you can go back into the toolbar and see that our function block has been created at the bottom.',
-                        {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '400px', left: '100px' } });
+                        {closeButton: false, show: false, center: false, unload: false, width: '250px', position: { top: '400px', left: '200px' } });
                 }
 
                    
