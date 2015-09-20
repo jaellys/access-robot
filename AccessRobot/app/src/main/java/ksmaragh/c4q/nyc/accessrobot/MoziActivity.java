@@ -6,9 +6,11 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -26,6 +28,12 @@ public class MoziActivity extends AppCompatActivity {
     private static final int REQUEST_CONNECT_DEVICE_SECURE = 1;
     private static final int REQUEST_CONNECT_DEVICE_INSECURE = 2;
     private static final int REQUEST_ENABLE_BT = 3;
+    private static final String LEVEL = "Level";
+    private static final String TUTORIAL = "Tutorial";
+    private static final String BLOCKLY_URL = "file:///android_asset/blockly/blockly.html";
+    private static final String BLOCKLY_TUT_URL = "file:///android_asset/blockly/tut.html";
+    private int currentLevel;
+
     private String mConnectedDeviceName = null;
     private StringBuffer mOutStringBuffer;
     private BluetoothAdapter mBluetoothAdapter = null;
@@ -42,9 +50,7 @@ public class MoziActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_code);
-
-        // Boolean to set the active tab
-        tutorial = getIntent().getExtras().getBoolean("tutorial");
+        loadPrefs();
 
         initProgramWebView();
         initTutWebView();
@@ -59,7 +65,7 @@ public class MoziActivity extends AppCompatActivity {
         wSettings = webView.getSettings();
         wSettings.setJavaScriptEnabled(true);
         webView.addJavascriptInterface(new myJsInterface(this), "Android");
-        webView.loadUrl("file:///android_asset/blockly/blockly.html");
+        webView.loadUrl(BLOCKLY_URL);
         for (int i = 0; i < 200; i++) {
             webView.zoomOut();
         }
@@ -71,7 +77,7 @@ public class MoziActivity extends AppCompatActivity {
         tutSettings = tutWebView.getSettings();
         tutSettings.setJavaScriptEnabled(true);
         tutWebView.addJavascriptInterface(new myJsInterface(this), "Android");
-        tutWebView.loadUrl("file:///android_asset/blockly/tut.html");
+        tutWebView.loadUrl(BLOCKLY_TUT_URL);
     }
 
     private void initActionBar() {
@@ -122,7 +128,59 @@ public class MoziActivity extends AppCompatActivity {
              sendMessage(msg);
         }
 
+        @JavascriptInterface
+        public void saveLevel(int num) {
+            savePrefs(num);
+        }
+
+        @JavascriptInterface
+        public int getCurrentLevel(){
+            return currentLevel;
+        }
+        @JavascriptInterface
+        public void reloadWebview(){
+
+            tutWebView.post(new Runnable(){
+
+                @Override
+                public void run() {
+                    tutWebView.reload();
+                }
+            });
+        }
+
+        @JavascriptInterface
+        public void reloadMoziActivity(){
+            finish();
+            startActivity(getIntent());
+        }
     }
+
+    /**
+     * Shared Preferences
+     */
+    private void savePrefs(int level){
+        currentLevel = level;
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt(LEVEL, level);
+
+        if(currentLevel > 8){
+            editor.putBoolean(TUTORIAL,false);
+        }
+        else {
+            editor.putBoolean(TUTORIAL,true);
+        }
+        editor.apply();
+
+    }
+
+    private void loadPrefs(){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        tutorial = preferences.getBoolean(TUTORIAL,true);
+        currentLevel = preferences.getInt(LEVEL, 1);
+    }
+
 
     /**
      * Set up the UI and background operations for chat.
@@ -368,6 +426,15 @@ public class MoziActivity extends AppCompatActivity {
                 Intent settingsIntent = new Intent(this, SettingsActivity.class);
                 startActivity(settingsIntent);
                 return true;
+            }
+
+            case R.id.runProgram:{
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+                    tutWebView.evaluateJavascript("checkAnswer()", null);
+                } else {
+                    tutWebView.loadUrl("javascript:checkAnswer();");
+                }
+
             }
         }
         return super.onOptionsItemSelected(item);

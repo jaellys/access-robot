@@ -61,6 +61,7 @@ public class LearnActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         initActionBar();
 
+
         btnLearnMoziComponents.setOnClickListener(buttonClickListener);
         btnOrderParts.setOnClickListener(buttonClickListener);
         btnAssemblyVideo.setOnClickListener(buttonClickListener);
@@ -117,7 +118,6 @@ public class LearnActivity extends AppCompatActivity {
 
     private void startBlocklyTutorial() {
         Intent intent = new Intent(this, MoziActivity.class);
-        intent.putExtra("tutorial", true);
         startActivity(intent);
 
     }
