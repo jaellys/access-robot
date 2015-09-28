@@ -1,55 +1,42 @@
 package ksmaragh.c4q.nyc.accessrobot;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.webkit.WebChromeClient;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
+import android.widget.Toast;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
+import com.google.android.youtube.player.YouTubeBaseActivity;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayer.Provider;
+import com.google.android.youtube.player.YouTubePlayerView;
 
+public class VideoPlayerActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener{
 
-public class VideoPlayerActivity extends AppCompatActivity {
-
-    @Bind(R.id.videoWebView)
-    WebView videoWebView;
+    public static final String API_KEY = "AIzaSyCe6tORd9Ch4lx-9Ku5SQ476uS9OtZYsWA";
+    public static final String VIDEO_ID = "DXpl0H1tLcU";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_player);
-        ButterKnife.bind(this);
 
-        String url = "https://www.youtube.com/watch?v=DXpl0H1tLcU?autoplay=1&vq=small";
-
-        videoWebView.getSettings().setJavaScriptEnabled(true);
-        videoWebView.loadUrl(url);
-        videoWebView.getSettings().setPluginState(WebSettings.PluginState.ON);
-        videoWebView.setWebChromeClient(new WebChromeClient());
+        YouTubePlayerView youTubePlayerView = (YouTubePlayerView)findViewById(R.id.youtubeplayerview);
+        youTubePlayerView.initialize(API_KEY, this);
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_settings, menu);
-        return true;
+    public void onInitializationFailure(Provider provider,
+                                        YouTubeInitializationResult result) {
+        Toast.makeText(getApplicationContext(),
+                "onInitializationFailure()",
+                Toast.LENGTH_LONG).show();
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+    public void onInitializationSuccess(Provider provider, YouTubePlayer player,
+                                        boolean wasRestored) {
+        if (!wasRestored) {
+            player.cueVideo(VIDEO_ID);
         }
-
-        return super.onOptionsItemSelected(item);
     }
+
 }

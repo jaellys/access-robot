@@ -58,4 +58,5 @@ dependencies {
     compile fileTree(dir: 'libs', include: 'Parse-*.jar')
     compile(name: 'MaterialDesign-md_ready-release', ext:'aar')
     compile 'com.ogaclejapan.smarttablayout:library:1.2.1@aar'
+    compile files('libs/YouTubeAndroidPlayerApi.jar')
 }
