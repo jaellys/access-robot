@@ -62,7 +62,7 @@
     <string name="part_usb_otg_bt_name">USB to OTG cable/Bluetooth chip</string>
     <string name="part_usb_otg_bt_info">When I first come to life, I need my USB OTG cable so that a creation message can get sent from your Android device to me. After that first set-up, I can receive messages via Bluetooth, no wires needed!</string>
     <string name="part_ultrasonic_range_finder_name">Ultrasonic range finder</string>
-    <string name="part_ultrasonic_range_finder_info">My ultrasonic range finder works like your "eyes". It not only looks like eyes, but it works like them, letting me detect what is near me!</string>
+    <string name="part_ultrasonic_range_finder_info">My ultrasonic range finder works like your "eyes". It looks like them too! But instead of using light it uses tiny sound waves to help me see, letting me detect what is near me!</string>
     <string name="part_leds_name">LEDs</string>
     <string name="part_leds_info">LED stands for light-emitting diode. LEDs are my lights that you can program to flash in different ways!</string>
     <string name="part_resistors_name">Resistors</string>
