@@ -80,5 +80,6 @@
     <string name="interface_type_serial">Serial cable</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_video_player">VideoPlayerActivity</string>
 
 </resources>

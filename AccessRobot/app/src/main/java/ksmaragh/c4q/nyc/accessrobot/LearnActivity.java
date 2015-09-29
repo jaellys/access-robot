@@ -1,7 +1,6 @@
 package ksmaragh.c4q.nyc.accessrobot;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
@@ -109,9 +108,8 @@ public class LearnActivity extends AppCompatActivity {
     }
 
     private void playMoziAssemblyVideo() {
-        String videoId = "DXpl0H1tLcU";
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + videoId));
-        intent.putExtra("force_fullscreen", true);
+        Intent intent = new Intent(this, VideoPlayerActivity.class);
+        //intent.putExtra("force_fullscreen", true);
         startActivity(intent);
 
     }
