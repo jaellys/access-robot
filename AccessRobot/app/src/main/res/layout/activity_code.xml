@@ -7,7 +7,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="ksmaragh.c4q.nyc.accessrobot.Code">
-
+<!-- for activity_code I left the same values across devices. Change if necessary-->
     <WebView
         android:id="@+id/webView"
         android:layout_width="match_parent"
