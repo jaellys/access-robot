@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="#ffffff"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     android:orientation="vertical">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|top"
-        android:gravity="center_horizontal|top"
-        android:scaleType="fitXY"
         android:adjustViewBounds="true"
         android:background="#ffffff"
-        android:src="@drawable/mozi_header_multi"/>
+        android:gravity="center_horizontal|top"
+        android:scaleType="fitXY"
+        android:src="@drawable/mozi_header_multi" />
 
     <VideoView
+        android:id="@+id/videoView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#ffffff"
-        android:id="@+id/videoView" />
+        android:background="#ffffff" />
 
 </LinearLayout>

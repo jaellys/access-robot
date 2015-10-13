@@ -337,7 +337,9 @@ public class DemoActivity extends AppCompatActivity {
                     break;
             }
         }
-    };
+    }
+
+    ;
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {

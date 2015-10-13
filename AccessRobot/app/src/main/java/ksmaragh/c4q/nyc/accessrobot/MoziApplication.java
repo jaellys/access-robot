@@ -16,7 +16,8 @@ import java.util.Properties;
 
 public class MoziApplication extends Application {
 
-    @Override public void onCreate() {
+    @Override
+    public void onCreate() {
         super.onCreate();
         Parse.enableLocalDatastore(this);
 

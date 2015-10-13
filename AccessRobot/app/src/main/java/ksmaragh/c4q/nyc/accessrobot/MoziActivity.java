@@ -39,7 +39,8 @@ public class MoziActivity extends AppCompatActivity {
     private BluetoothAdapter mBluetoothAdapter = null;
     private BluetoothArduinoService mChatService = null;
     private final BluetoothHandler mHandler = new BluetoothHandler(this);
-    private WebView webView, tutWebView;;
+    private WebView webView, tutWebView;
+
     private WebSettings wSettings, tutSettings;
     private boolean tutorial;
 
@@ -56,7 +57,6 @@ public class MoziActivity extends AppCompatActivity {
         initTutWebView();
         initBluetooth();
         initActionBar();
-
     }
 
     public void initProgramWebView() {
@@ -72,7 +72,7 @@ public class MoziActivity extends AppCompatActivity {
     }
 
     public void initTutWebView() {
-        tutWebView= new WebView(this);
+        tutWebView = new WebView(this);
         tutWebView.setClickable(true);
         tutSettings = tutWebView.getSettings();
         tutSettings.setJavaScriptEnabled(true);
@@ -125,7 +125,7 @@ public class MoziActivity extends AppCompatActivity {
         @JavascriptInterface
         public void talkToArduino(String msg) {
             //Toast.makeText(MoziActivity.this, msg, Toast.LENGTH_SHORT).show();
-             sendMessage(msg);
+            sendMessage(msg);
         }
 
         @JavascriptInterface
@@ -134,13 +134,14 @@ public class MoziActivity extends AppCompatActivity {
         }
 
         @JavascriptInterface
-        public int getCurrentLevel(){
+        public int getCurrentLevel() {
             return currentLevel;
         }
-        @JavascriptInterface
-        public void reloadWebview(){
 
-            tutWebView.post(new Runnable(){
+        @JavascriptInterface
+        public void reloadWebview() {
+
+            tutWebView.post(new Runnable() {
 
                 @Override
                 public void run() {
@@ -150,7 +151,7 @@ public class MoziActivity extends AppCompatActivity {
         }
 
         @JavascriptInterface
-        public void reloadMoziActivity(){
+        public void reloadMoziActivity() {
             finish();
             startActivity(getIntent());
         }
@@ -159,25 +160,24 @@ public class MoziActivity extends AppCompatActivity {
     /**
      * Shared Preferences
      */
-    private void savePrefs(int level){
+    private void savePrefs(int level) {
         currentLevel = level;
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putInt(LEVEL, level);
 
-        if(currentLevel > 8){
-            editor.putBoolean(TUTORIAL,false);
-        }
-        else {
-            editor.putBoolean(TUTORIAL,true);
+        if (currentLevel > 8) {
+            editor.putBoolean(TUTORIAL, false);
+        } else {
+            editor.putBoolean(TUTORIAL, true);
         }
         editor.apply();
 
     }
 
-    private void loadPrefs(){
+    private void loadPrefs() {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        tutorial = preferences.getBoolean(TUTORIAL,true);
+        tutorial = preferences.getBoolean(TUTORIAL, true);
         currentLevel = preferences.getInt(LEVEL, 1);
     }
 
@@ -305,7 +305,9 @@ public class MoziActivity extends AppCompatActivity {
                     break;
             }
         }
-    };
+    }
+
+    ;
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
@@ -428,7 +430,7 @@ public class MoziActivity extends AppCompatActivity {
                 return true;
             }
 
-            case R.id.runProgram:{
+            case R.id.runProgram: {
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
                     tutWebView.evaluateJavascript("checkAnswer()", null);
                 } else {

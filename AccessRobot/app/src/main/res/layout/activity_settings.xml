@@ -7,6 +7,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="ksmaragh.c4q.nyc.accessrobot.SettingsActivity">
+
     <TextView
         android:id="@+id/tv_interface_type_heading"
         android:layout_width="match_parent"
@@ -14,7 +15,7 @@
         android:gravity="left"
         android:text="@string/interface_type_label"
         android:textSize="22sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <RadioGroup
         android:id="@+id/rg_interface_type"
@@ -22,17 +23,18 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_interface_type_heading">
 
-        <RadioButton android:id="@+id/rb_bluetooth"
+        <RadioButton
+            android:id="@+id/rb_bluetooth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/interface_type_bluetooth"
-            android:checked="true"/>
+            android:checked="true"
+            android:text="@string/interface_type_bluetooth" />
 
-        <RadioButton android:id="@+id/rb_serial"
+        <RadioButton
+            android:id="@+id/rb_serial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/interface_type_serial"
-            />
+            android:text="@string/interface_type_serial" />
 
     </RadioGroup>
 
