@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/padding_mozi_logo"
                 android:scaleType="fitCenter"
-                android:src="@drawable/mozi_logo_type" />
+                android:src="@drawable/mozi_logo" />
 
             <Button
                 android:id="@+id/btn_learn_mozi_components"
