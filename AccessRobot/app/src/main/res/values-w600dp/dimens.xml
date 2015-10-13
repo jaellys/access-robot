@@ -10,8 +10,25 @@
     <dimen name="button_height">72dp</dimen>
     <dimen name="button_margin_top">24dp</dimen>
 
+    <!-- components_activity -->
+    <dimen name="padding_left_right_bottom">48dp</dimen>
+    <dimen name="padding_top">100dp</dimen>
+    <dimen name="parts_header">48sp</dimen>
+    <dimen name="parts_instructions">24sp</dimen>
+
+    <!-- component_dialog -->
+    <dimen name="button_margin_top_mozi">64dp</dimen>
+    <dimen name="button_confirm_text">24sp</dimen>
+    <dimen name="button_padding">16dp</dimen>
+    <dimen name="container_padding">32dp</dimen>
+    <dimen name="iv_padding">24dp</dimen>
+    <dimen name="part_info_margin_top">24dp</dimen>
+    <dimen name="text_part_info">32sp</dimen>
+    <dimen name="text_part_name">40sp</dimen>
+
     <!-- drawables -->
     <dimen name="dialog_bg_color_corner_radius">30dp</dimen>
     <dimen name="dialog_bg_color_padding">32dp</dimen>
     <dimen name="button_radius">8dp</dimen>
+
 </resources>
