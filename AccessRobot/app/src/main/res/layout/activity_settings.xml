@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:gravity="left"
         android:text="@string/interface_type_label"
-        android:textSize="22sp"
+        android:textSize="@dimen/text_heading"
         android:textStyle="bold" />
 
     <RadioGroup
@@ -28,13 +28,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="@string/interface_type_bluetooth" />
+            android:text="@string/interface_type_bluetooth"
+            android:textSize="@dimen/text_body" />
 
         <RadioButton
             android:id="@+id/rb_serial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/interface_type_serial" />
+            android:text="@string/interface_type_serial"
+            android:textSize="@dimen/text_body" />
 
     </RadioGroup>
 
