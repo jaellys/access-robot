@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">24dp</dimen>
+    <dimen name="activity_vertical_margin">24dp</dimen>
+
+    <!-- learn_activity -->
+    <dimen name="padding_dialog">24dp</dimen>
+    <dimen name="padding_mozi_logo">36dp</dimen>
+    <dimen name="button_width">400dp</dimen>
+    <dimen name="button_height">72dp</dimen>
+    <dimen name="button_margin_top">24dp</dimen>
+
+    <!-- drawables -->
+    <dimen name="dialog_bg_color_corner_radius">30dp</dimen>
+    <dimen name="dialog_bg_color_padding">32dp</dimen>
+    <dimen name="button_radius">8dp</dimen>
+</resources>
