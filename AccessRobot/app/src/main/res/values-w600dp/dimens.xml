@@ -27,8 +27,8 @@
     <dimen name="container_padding">32dp</dimen>
     <dimen name="iv_padding">24dp</dimen>
     <dimen name="part_info_margin_top">24dp</dimen>
-    <dimen name="text_part_info">32sp</dimen>
-    <dimen name="text_part_name">40sp</dimen>
+    <dimen name="text_part_info">24sp</dimen>
+    <dimen name="text_part_name">32sp</dimen>
 
     <!-- drawables -->
     <dimen name="dialog_bg_color_corner_radius">30dp</dimen>

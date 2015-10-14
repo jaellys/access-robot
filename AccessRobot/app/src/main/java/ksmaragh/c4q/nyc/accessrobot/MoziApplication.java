@@ -19,6 +19,7 @@ public class MoziApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
         Parse.enableLocalDatastore(this);
 
         Properties configFile = new Properties();
@@ -36,6 +37,6 @@ public class MoziApplication extends Application {
 
         Parse.initialize(this, appKey, mobileKey);
 
-        FontsOverride.setDefaultFont(this, "MONOSPACE", "Lekton-Bold.ttf");
+        FontsOverride.setDefaultFont(this, "MONOSPACE", "fonts/Lekton-Bold.ttf");
     }
 }
