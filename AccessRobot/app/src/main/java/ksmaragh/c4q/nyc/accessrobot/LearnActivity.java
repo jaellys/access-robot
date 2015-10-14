@@ -49,10 +49,8 @@ public class LearnActivity extends AppCompatActivity {
                     startBlocklyTutorial();
                     break;
             }
-
         }
     };
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,17 +59,13 @@ public class LearnActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         initActionBar();
 
-
         btnLearnMoziComponents.setOnClickListener(buttonClickListener);
         btnOrderParts.setOnClickListener(buttonClickListener);
         btnAssemblyVideo.setOnClickListener(buttonClickListener);
         btnLearnBlockly.setOnClickListener(buttonClickListener);
-
-
     }
 
     private void initActionBar() {
-
         // setup action bar for tabs
         ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -94,7 +88,6 @@ public class LearnActivity extends AppCompatActivity {
                 .setTabListener(new TabListener(
                         this, "program"));
         actionBar.addTab(tab);
-
     }
 
     private void startComponentListActivity() {
@@ -105,7 +98,6 @@ public class LearnActivity extends AppCompatActivity {
     private void startPartsActivity() {
         Intent intent = new Intent(this, PartsActivity.class);
         startActivity(intent);
-
     }
 
     private void playMoziAssemblyVideo() {
@@ -113,15 +105,12 @@ public class LearnActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + videoId));
         intent.putExtra("force_fullscreen", true);
         startActivity(intent);
-
     }
 
     private void startBlocklyTutorial() {
         Intent intent = new Intent(this, MoziActivity.class);
         startActivity(intent);
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -139,9 +128,9 @@ public class LearnActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Intent settingsIntent = new Intent(this, SettingsActivity.class);
+            this.startActivity(settingsIntent);
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -149,14 +138,12 @@ public class LearnActivity extends AppCompatActivity {
         private final LearnActivity mActivity;
         private final String mTag;
 
-
         public TabListener(LearnActivity activity, String tag) {
             mActivity = activity;
             mTag = tag;
         }
 
     /* The following are each of the ActionBar.TabListener callbacks */
-
 
         @Override
         public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
@@ -176,11 +163,11 @@ public class LearnActivity extends AppCompatActivity {
         }
 
         public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
-
         }
 
         public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
             // User selected the already selected tab. Usually do nothing.
         }
+
     }
 }

@@ -1,5 +1,40 @@
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
+    <!-- Dimens 2/3 of those on tablet, *usually* rounded up/down to closest multiple of 8 (Material Design spec) -->
+
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- global -->
+    <dimen name="text_header">24sp</dimen>
+    <dimen name="text_body">16dp</dimen>
+
+    <!-- learn_activity -->
+    <dimen name="padding_dialog">16dp</dimen>
+    <dimen name="padding_mozi_logo">24dp</dimen>
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="button_margin_top">16dp</dimen>
+    <dimen name="button_width">250dp</dimen>
+
+    <!-- components_activity -->
+    <dimen name="padding_left_right_bottom">24dp</dimen>
+    <dimen name="padding_top">32dp</dimen>
+    <dimen name="parts_header">40sp</dimen>
+    <dimen name="parts_instructions">16sp</dimen>
+
+    <!-- component_dialog -->
+    <dimen name="button_margin_top_mozi">40dp</dimen>
+    <dimen name="button_confirm_text">16sp</dimen>
+    <dimen name="button_padding">11dp</dimen>
+    <dimen name="container_padding">24dp</dimen>
+    <dimen name="iv_padding">16dp</dimen>
+    <dimen name="part_info_margin_top">16dp</dimen>
+    <dimen name="text_part_info">24sp</dimen>
+    <dimen name="text_part_name">32sp</dimen>
+
+    <!-- drawables -->
+    <dimen name="dialog_bg_color_corner_radius">20dp</dimen>
+    <dimen name="dialog_bg_color_padding">24dp</dimen>
+    <dimen name="button_radius">4dp</dimen>
+    <dimen name="text_heading">22sp</dimen>
+
 </resources>

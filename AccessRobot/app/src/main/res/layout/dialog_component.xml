@@ -10,8 +10,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:background="@color/white"
-        android:paddingBottom="24dp"
-        android:paddingTop="24dp" />
+        android:paddingBottom="@dimen/iv_padding"
+        android:paddingTop="@dimen/iv_padding" />
 
     <RelativeLayout
         android:id="@+id/info_container"
@@ -19,9 +19,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/iv_part"
         android:background="@drawable/dialog_bg_purple"
-        android:paddingBottom="32dp"
-        android:paddingLeft="32dp"
-        android:paddingRight="32dp">
+        android:paddingBottom="@dimen/container_padding"
+        android:paddingLeft="@dimen/container_padding"
+        android:paddingRight="@dimen/container_padding">
 
         <TextView
             android:id="@+id/tv_part_name"
@@ -32,7 +32,7 @@
             android:text="part name"
             android:textAllCaps="true"
             android:textColor="@color/white"
-            android:textSize="40sp" />
+            android:textSize="@dimen/text_part_name" />
 
         <ScrollView
             android:id="@+id/scrollView"
@@ -49,10 +49,10 @@
                     android:id="@+id/tv_part_info"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="@dimen/part_info_margin_top"
                     android:text="part info"
                     android:textColor="@color/white"
-                    android:textSize="32sp" />
+                    android:textSize="@dimen/text_part_info" />
 
                 <Button
                     android:id="@+id/btn_got_it"
@@ -61,11 +61,11 @@
                     android:layout_alignParentBottom="true"
                     android:layout_below="@+id/tv_part_info"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="64dp"
+                    android:layout_marginTop="@dimen/button_margin_top_mozi"
                     android:background="@drawable/button_white"
-                    android:padding="16dp"
+                    android:padding="@dimen/button_padding"
                     android:text="@string/got_it"
-                    android:textSize="24sp" />
+                    android:textSize="@dimen/button_confirm_text" />
 
             </RelativeLayout>
 

@@ -39,7 +39,6 @@ public class SignupActivity extends ActionBarActivity {
         intentEmail = intent.getStringExtra("email");
         initializeView();
         ParseUser.logOut();
-
     }
 
     private void initializeView() {
@@ -94,7 +93,7 @@ public class SignupActivity extends ActionBarActivity {
             public void done(ParseException e) {
                 if (e == null) {
                     // Hooray! Let them use the app now.
-                    Toast.makeText(getBaseContext(), "Welcome!" , Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), "Welcome!", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(getBaseContext(), MoziActivity.class);
                     intent.putExtra("tutorial", false);
                     startActivity(intent);
@@ -115,9 +114,7 @@ public class SignupActivity extends ActionBarActivity {
                 }
             }
         });
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -155,7 +152,6 @@ public class SignupActivity extends ActionBarActivity {
             });
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }

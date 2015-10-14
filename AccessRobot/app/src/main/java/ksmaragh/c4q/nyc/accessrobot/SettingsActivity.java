@@ -46,19 +46,15 @@ public class SettingsActivity extends ActionBarActivity {
         rbSerialCable = (RadioButton) findViewById(R.id.rb_serial);
 
         initializeView();
-
-
     }
 
     private void initializeView() {
         int preferenceType = sharedPreferencesHelper.getInterfaceType();
         if (preferenceType == AppConstants.INTERFACE_SERIAL_CABLE) {
             rbSerialCable.setChecked(true);
-        }
-        else {
+        } else {
             rbBluetooth.setChecked(true);
         }
-
     }
 
     @Override
@@ -79,7 +75,6 @@ public class SettingsActivity extends ActionBarActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }

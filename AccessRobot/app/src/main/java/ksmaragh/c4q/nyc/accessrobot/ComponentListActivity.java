@@ -65,7 +65,7 @@ public class ComponentListActivity extends FragmentActivity
         switch (action) {
             case MotionEvent.ACTION_DOWN:
                 if (currentResource == R.drawable.mozi_parts) {
-                    nextImage = R.drawable.mozi_parts_indicator;
+                    nextImage = R.drawable.mozi_parts_indicators;
                     handledHere = true;
        /*
        } else if (currentResource != R.drawable.mozi_parts) {

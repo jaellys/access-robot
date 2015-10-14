@@ -27,6 +27,4 @@ public class SharedPreferencesHelper {
                 mContext.getSharedPreferences(AppConstants.SETTINGS_PREFERENCES_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getInt(AppConstants.SETTINGS_PREFERENCES_NAME, AppConstants.INTERFACE_BLUETOOTH);
     }
-
-
 }

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/mozi_bg">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/dialog_bg"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_dialog">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/mozi_logo_type"
+                android:layout_marginBottom="@dimen/padding_mozi_logo"
+                android:scaleType="fitCenter"/>
+
+            <Button
+                android:id="@+id/btn_learn_mozi_components"
+                style="@style/learn_buttons"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="@dimen/button_height"
+                android:background="@drawable/button_pink"
+                android:stateListAnimator="@null"
+                android:text="@string/btn_mozi" />
+
+            <Button
+                android:id="@+id/btn_order_parts"
+                style="@style/learn_buttons"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="@dimen/button_margin_top"
+                android:background="@drawable/button_orange"
+                android:stateListAnimator="@null"
+                android:text="@string/btn_order" />
+
+            <Button
+                android:id="@+id/btn_learn_assembly"
+                style="@style/learn_buttons"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="@dimen/button_margin_top"
+                android:background="@drawable/button_yellow"
+                android:stateListAnimator="@null"
+                android:text="@string/btn_build" />
+
+            <Button
+                android:id="@+id/btn_learn_blockly"
+                style="@style/learn_buttons"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="@dimen/button_margin_top"
+                android:background="@drawable/button_blue"
+                android:stateListAnimator="@null"
+                android:text="@string/btn_program" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>
