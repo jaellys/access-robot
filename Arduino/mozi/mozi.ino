@@ -8,8 +8,12 @@
 
 Servo leftServo;
 Servo rightServo;
-int leftLED = 3;
-int rightLED = 5;
+const int trigPin = 2;
+const int echoPin = 4;
+
+const int leftLED = 3;
+const int rightLED = 5;
+boolean obstacle;
 
 numvar forward_handler(void) {
   int seconds = map(getarg(1), 0, 1000, 0, 1000000);
@@ -63,7 +67,29 @@ numvar right_light_handler(void) {
   return 0;
 }
 
+numvar obstacle_handler(void) {
+  int withinInches = getarg(1);
+  long duration, inches;
+  
+  pinMode(trigPin, OUTPUT);
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  pinMode(echoPin, INPUT);
+  duration = pulseIn(echoPin, HIGH);
+  inches = duration / 74 / 2;
+  if (inches < withinInches) {
+    obstacle = true;
+    return 1;
+  } 
+  obstacle = false;
+  return 0;
+}
+
 void setup(void) {
+  obstacle = false;
   leftServo.attach(12);
   rightServo.attach(13);
   pinMode(rightLED, OUTPUT);
@@ -75,6 +101,7 @@ void setup(void) {
   addBitlashFunction("tr", (bitlash_function) right_handler);
   addBitlashFunction("ll", (bitlash_function) left_light_handler);
   addBitlashFunction("rl", (bitlash_function) right_light_handler);
+  addBitlashFunction("oo", (bitlash_function) obstacle_handler);
 }
 
 void loop(void) {
